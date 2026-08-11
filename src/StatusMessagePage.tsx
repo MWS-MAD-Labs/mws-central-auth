@@ -8,10 +8,6 @@ export interface StatusMessageAction {
   variant?: "primary" | "secondary";
 }
 
-// Standalone color tokens - deliberately NOT tied to any one app's design
-// system (e.g. shadcn's hsl(var(--primary)) convention). Apps that want
-// pixel-exact theme matching pass their own tokens via the `theme` prop;
-// apps that pass nothing still get a reasonable, self-contained look.
 export interface StatusMessageTheme {
   cardBackground?: string;
   cardBorder?: string;
@@ -27,10 +23,6 @@ export interface StatusMessagePageProps {
   message: string;
   actions?: StatusMessageAction[];
   theme?: StatusMessageTheme;
-  // Seconds to wait before this component's own entrance animation starts.
-  // Set this to match/outlast any outer page-transition wrapper the host
-  // app already fades this component in with - otherwise both animations
-  // run at once and the outer fade masks this component's motion entirely.
   startDelay?: number;
 }
 
@@ -128,14 +120,24 @@ export default function StatusMessagePage({
         style={styles.card}
         initial={{ opacity: 0, y: 48 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", stiffness: 260, damping: 20, delay: startDelay }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+          delay: startDelay,
+        }}
       >
         {icon && (
           <motion.div
             style={styles.icon}
             initial={{ opacity: 0, scale: 0.3, rotate: -15 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 400, damping: 12, delay: startDelay + 0.15 }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 12,
+              delay: startDelay + 0.15,
+            }}
           >
             {icon}
           </motion.div>
@@ -147,7 +149,12 @@ export default function StatusMessagePage({
             style={styles.actions}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 22, delay: startDelay + 0.3 }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 22,
+              delay: startDelay + 0.3,
+            }}
           >
             {actions.map((action, index) => {
               const kind =
