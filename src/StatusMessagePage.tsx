@@ -7,14 +7,106 @@ export interface StatusMessageAction {
   variant?: 'primary' | 'secondary';
 }
 
+// Standalone color tokens - deliberately NOT tied to any one app's design
+// system (e.g. shadcn's hsl(var(--primary)) convention). Apps that want
+// pixel-exact theme matching pass their own tokens via the `theme` prop;
+// apps that pass nothing still get a reasonable, self-contained look.
+export interface StatusMessageTheme {
+  cardBackground?: string;
+  cardBorder?: string;
+  primary?: string;
+  primaryForeground?: string;
+  foreground?: string;
+  mutedForeground?: string;
+}
+
 export interface StatusMessagePageProps {
   icon?: ReactNode;
   title: string;
   message: string;
   actions?: StatusMessageAction[];
+  theme?: StatusMessageTheme;
 }
 
-export default function StatusMessagePage({ icon, title, message, actions = [] }: StatusMessagePageProps) {
+const DEFAULT_THEME: Required<StatusMessageTheme> = {
+  cardBackground: '#ffffff',
+  cardBorder: '#e5e7eb',
+  primary: '#2563eb',
+  primaryForeground: '#ffffff',
+  foreground: '#111827',
+  mutedForeground: '#6b7280',
+};
+
+function buildStyles(theme: Required<StatusMessageTheme>): Record<string, CSSProperties> {
+  const buttonBase: CSSProperties = {
+    display: 'inline-block',
+    padding: '0.75rem 1.25rem',
+    borderRadius: '0.75rem',
+    fontWeight: 600,
+    fontSize: '0.9375rem',
+    textDecoration: 'none',
+    cursor: 'pointer',
+  };
+
+  return {
+    wrapper: {
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '2.5rem 1rem',
+    },
+    card: {
+      width: '100%',
+      maxWidth: '28rem',
+      borderRadius: '1rem',
+      border: `1px solid ${theme.cardBorder}`,
+      background: theme.cardBackground,
+      padding: '2rem',
+      textAlign: 'center',
+      boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)',
+    },
+    icon: {
+      display: 'flex',
+      justifyContent: 'center',
+      marginBottom: '1rem',
+      color: theme.primary,
+    },
+    title: {
+      fontSize: '1.5rem',
+      fontWeight: 600,
+      color: theme.foreground,
+      margin: '0 0 0.75rem',
+    },
+    message: {
+      fontSize: '0.9375rem',
+      color: theme.mutedForeground,
+      lineHeight: 1.6,
+      margin: '0 0 1.5rem',
+    },
+    actions: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '0.75rem',
+    },
+    primaryButton: {
+      ...buttonBase,
+      background: theme.primary,
+      color: theme.primaryForeground,
+      border: 'none',
+    },
+    secondaryButton: {
+      ...buttonBase,
+      background: 'transparent',
+      color: theme.foreground,
+      border: `1px solid ${theme.cardBorder}`,
+    },
+  };
+}
+
+export default function StatusMessagePage({ icon, title, message, actions = [], theme }: StatusMessagePageProps) {
+  const styles = buildStyles({ ...DEFAULT_THEME, ...theme });
+
   return (
     <div style={styles.wrapper}>
       <div style={styles.card}>
@@ -42,71 +134,3 @@ export default function StatusMessagePage({ icon, title, message, actions = [] }
     </div>
   );
 }
-
-const styles: Record<string, CSSProperties> = {
-  wrapper: {
-    minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '2.5rem 1rem',
-  },
-  card: {
-    width: '100%',
-    maxWidth: '28rem',
-    borderRadius: '1rem',
-    border: '1px solid hsl(var(--border, 214 32% 91%) / 0.4)',
-    background: 'hsl(var(--card, 0 0% 100%) / 0.6)',
-    backdropFilter: 'blur(12px)',
-    padding: '2rem',
-    textAlign: 'center',
-    boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)',
-  },
-  icon: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: '1rem',
-    color: 'hsl(var(--primary, 221 83% 53%))',
-  },
-  title: {
-    fontSize: '1.5rem',
-    fontWeight: 600,
-    color: 'hsl(var(--foreground, 222 47% 11%))',
-    margin: '0 0 0.75rem',
-  },
-  message: {
-    fontSize: '0.9375rem',
-    color: 'hsl(var(--muted-foreground, 215 16% 47%))',
-    lineHeight: 1.6,
-    margin: '0 0 1.5rem',
-  },
-  actions: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.75rem',
-  },
-  primaryButton: {
-    display: 'inline-block',
-    padding: '0.75rem 1.25rem',
-    borderRadius: '0.75rem',
-    background: 'hsl(var(--primary, 221 83% 53%))',
-    color: 'hsl(var(--primary-foreground, 0 0% 100%))',
-    fontWeight: 600,
-    fontSize: '0.9375rem',
-    textDecoration: 'none',
-    border: 'none',
-    cursor: 'pointer',
-  },
-  secondaryButton: {
-    display: 'inline-block',
-    padding: '0.75rem 1.25rem',
-    borderRadius: '0.75rem',
-    background: 'transparent',
-    color: 'hsl(var(--foreground, 222 47% 11%))',
-    fontWeight: 600,
-    fontSize: '0.9375rem',
-    textDecoration: 'none',
-    border: '1px solid hsl(var(--border, 214 32% 91%) / 0.4)',
-    cursor: 'pointer',
-  },
-};

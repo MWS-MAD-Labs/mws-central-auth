@@ -11,7 +11,7 @@ Consumed as a git dependency, not published to npm.
 
 ```json
 "dependencies": {
-  "mws-central-auth-ui": "git+https://github.com/MWS-MAD-Labs/mws-central-auth-ui.git#v0.1.0"
+  "mws-central-auth-ui": "git+https://github.com/MWS-MAD-Labs/mws-central-auth-ui.git#v0.1.1"
 }
 ```
 
@@ -38,6 +38,26 @@ import { StatusMessagePage } from "mws-central-auth-ui";
 management, no app-specific context. The consuming app owns routing,
 page-transition animation, and document title; this component just renders
 the card.
+
+By default it renders with its own standalone colors (no assumption that
+the host app defines any particular CSS variables). Pass `theme` to match
+your app's own design system instead:
+
+```tsx
+<StatusMessagePage
+  title="Account Not Found"
+  message="..."
+  actions={[...]}
+  theme={{
+    cardBackground: "hsl(var(--card) / 0.6)",
+    cardBorder: "hsl(var(--border) / 0.4)",
+    primary: "hsl(var(--primary))",
+    primaryForeground: "hsl(var(--primary-foreground))",
+    foreground: "hsl(var(--foreground))",
+    mutedForeground: "hsl(var(--muted-foreground))",
+  }}
+/>
+```
 
 ## Local development
 
