@@ -120,16 +120,16 @@ export default function StatusMessagePage({
     <div style={styles.wrapper}>
       <motion.div
         style={styles.card}
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 48, scale: 0.92 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20 }}
       >
         {icon && (
           <motion.div
             style={styles.icon}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
+            initial={{ opacity: 0, scale: 0.3, rotate: -15 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 400, damping: 12, delay: 0.15 }}
           >
             {icon}
           </motion.div>
@@ -139,9 +139,9 @@ export default function StatusMessagePage({
         {actions.length > 0 && (
           <motion.div
             style={styles.actions}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.35, delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 22, delay: 0.3 }}
           >
             {actions.map((action, index) => {
               const kind =
