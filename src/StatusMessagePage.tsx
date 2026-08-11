@@ -126,8 +126,8 @@ export default function StatusMessagePage({
     <div style={styles.wrapper}>
       <motion.div
         style={styles.card}
-        initial={{ opacity: 0, y: 48, scale: 0.92 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
+        initial={{ opacity: 0, y: 48 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: startDelay }}
       >
         {icon && (
