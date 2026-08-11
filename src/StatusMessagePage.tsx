@@ -27,6 +27,11 @@ export interface StatusMessagePageProps {
   message: string;
   actions?: StatusMessageAction[];
   theme?: StatusMessageTheme;
+  // Seconds to wait before this component's own entrance animation starts.
+  // Set this to match/outlast any outer page-transition wrapper the host
+  // app already fades this component in with - otherwise both animations
+  // run at once and the outer fade masks this component's motion entirely.
+  startDelay?: number;
 }
 
 const DEFAULT_THEME: Required<StatusMessageTheme> = {
@@ -113,6 +118,7 @@ export default function StatusMessagePage({
   message,
   actions = [],
   theme,
+  startDelay = 0,
 }: StatusMessagePageProps) {
   const styles = buildStyles({ ...DEFAULT_THEME, ...theme });
 
@@ -122,14 +128,14 @@ export default function StatusMessagePage({
         style={styles.card}
         initial={{ opacity: 0, y: 48, scale: 0.92 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20, delay: startDelay }}
       >
         {icon && (
           <motion.div
             style={styles.icon}
             initial={{ opacity: 0, scale: 0.3, rotate: -15 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 400, damping: 12, delay: 0.15 }}
+            transition={{ type: "spring", stiffness: 400, damping: 12, delay: startDelay + 0.15 }}
           >
             {icon}
           </motion.div>
@@ -141,7 +147,7 @@ export default function StatusMessagePage({
             style={styles.actions}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 22, delay: 0.3 }}
+            transition={{ type: "spring", stiffness: 300, damping: 22, delay: startDelay + 0.3 }}
           >
             {actions.map((action, index) => {
               const kind =
