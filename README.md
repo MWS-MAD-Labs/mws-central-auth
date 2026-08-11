@@ -10,7 +10,6 @@ Consumed as a git dependency, not published to npm.
 ## Install
 
 ```json
-// package.json of the consuming app
 "dependencies": {
   "mws-central-auth-ui": "git+https://github.com/MWS-MAD-Labs/mws-central-auth-ui.git#v0.1.0"
 }
@@ -23,16 +22,16 @@ side.
 ## Usage
 
 ```tsx
-import { StatusMessagePage } from 'mws-central-auth-ui';
+import { StatusMessagePage } from "mws-central-auth-ui";
 
 <StatusMessagePage
   title="Account Not Found"
   message="Your account is not registered in our database..."
   actions={[
-    { label: 'Back to Sign In', onClick: () => navigate('/') },
-    { label: 'Contact Administrator', href: 'mailto:admin@millennia21.id' },
+    { label: "Back to Sign In", onClick: () => navigate("/") },
+    { label: "Contact Administrator", href: "mailto:admin@millennia21.id" },
   ]}
-/>
+/>;
 ```
 
 `StatusMessagePage` is presentational only — no router, no state
@@ -43,6 +42,10 @@ the card.
 ## Local development
 
 ```
-npm install
-npm run build
+bun install
+bun run build
 ```
+
+(Consumers install this package via npm as a git dependency — see
+"Install" above — since that's each consuming app's own stack. `bun` here
+is only for developing this repo itself.)

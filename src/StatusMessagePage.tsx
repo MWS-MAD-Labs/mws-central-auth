@@ -14,11 +14,6 @@ export interface StatusMessagePageProps {
   actions?: StatusMessageAction[];
 }
 
-// Portable, framework-agnostic status/error page shell for MWS apps that
-// integrate with the central database. No router/redux/app deps - plain
-// props in, JSX out. Styling uses shadcn/ui-style CSS variables (with
-// fallbacks) so it matches the host app's theme without this package
-// needing Tailwind configured against its own files.
 export default function StatusMessagePage({ icon, title, message, actions = [] }: StatusMessagePageProps) {
   return (
     <div style={styles.wrapper}>
