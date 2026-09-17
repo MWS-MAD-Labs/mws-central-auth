@@ -1,4 +1,9 @@
+import { webcrypto } from "node:crypto";
 import { importPublicKeyFromJwks, importPublicKeyFromPem } from "./jwks.js";
+
+// See jwks.ts for why this is an explicit import rather than the ambient
+// `crypto` global.
+const subtle = webcrypto.subtle;
 import { InMemoryReplayStore } from "./replay-store.js";
 import { relayTokenPayloadSchema, type RelayTokenPayload, type ReplayStore } from "./types.js";
 
@@ -68,7 +73,7 @@ export async function verifyRelayToken(token: string, options: VerifyRelayTokenO
 
   const signingInput = new TextEncoder().encode(`${headerSegment}.${payloadSegment}`);
   const signature = base64UrlDecode(signatureSegment);
-  const signatureValid = await crypto.subtle.verify(
+  const signatureValid = await subtle.verify(
     "RSASSA-PKCS1-v1_5",
     key,
     signature as BufferSource,

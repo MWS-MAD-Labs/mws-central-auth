@@ -1,3 +1,12 @@
+import { webcrypto } from "node:crypto";
+
+// Explicit import instead of the ambient `crypto` global: `globalThis.crypto`
+// only became available without a flag starting in Node 19 - some consumers
+// of this package (mws-mtss-system, mws-daily-checkin) run on Node 18
+// containers, where that global isn't guaranteed. `node:crypto`'s
+// `webcrypto` export has been stable since Node 15 regardless.
+const subtle = webcrypto.subtle;
+
 interface JsonWebKey {
   kty?: string;
   n?: string;
@@ -53,7 +62,7 @@ export async function importPublicKeyFromJwks(input: {
 
   if (!jwk) throw new Error(`No JWKS key found for kid "${input.kid}" at ${input.jwksUrl}`);
 
-  return crypto.subtle.importKey(
+  return subtle.importKey(
     "jwk",
     { kty: jwk.kty, n: jwk.n, e: jwk.e, alg: "RS256", ext: true },
     { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
@@ -72,7 +81,7 @@ export function importPublicKeyFromPem(pem: string): Promise<CryptoKey> {
 
   const keyData = Buffer.from(body, "base64");
 
-  return crypto.subtle.importKey(
+  return subtle.importKey(
     "spki",
     keyData,
     { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
