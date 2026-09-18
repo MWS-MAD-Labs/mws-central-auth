@@ -16,7 +16,7 @@ Consumed as a git dependency, not published to npm.
 
 ```json
 "dependencies": {
-  "mws-central-auth": "git+https://github.com/MWS-MAD-Labs/mws-central-auth.git#v0.2.0"
+  "mws-central-auth": "git+https://github.com/MWS-MAD-Labs/mws-central-auth.git#v0.3.0"
 }
 ```
 
@@ -26,8 +26,30 @@ side.
 
 ## Usage: SSO relay token verification (`mws-central-auth/server`)
 
-Verifies a token minted by mws-hub's `/apps/:appId/launch` handoff before a
-satellite app trusts the identity it carries. Two verification modes:
+### How the token reaches your backend
+
+Hub's `/apps/:appId/launch` no longer puts the token itself in the browser
+redirect. Instead:
+
+1. Hub redirects the browser to your app's entry URL with a short-lived,
+   single-use opaque code: `https://your-app.example/auth/sso?code=<code>`.
+2. Your app's **backend** (never the browser) exchanges that code for the
+   real token by calling Hub directly, server-to-server:
+
+   ```
+   POST https://hub.example.sch.id/sso/exchange
+   Headers: X-Hub-Internal-Secret: <the shared secret your deployment already has>
+   Body: { "code": "<code from the query string>", "appId": "<your app's sso.appId>" }
+   Response: { "data": { "token": "<the relay token>" } }
+   ```
+
+3. You verify that `token` exactly as below.
+
+The token itself never sits in a URL, a server access log, or browser
+history this way - only the low-value opaque code does, and that code is
+useless to anyone who doesn't also have the shared secret.
+
+### Verifying the token
 
 ```ts
 import { verifyRelayToken, RelayTokenVerificationError } from "mws-central-auth/server";
@@ -48,12 +70,20 @@ const identity = await verifyRelayToken(token, {
 });
 ```
 
-`identity` is `{ iss, aud, sub, source, tags, jti, iat, exp }` — `sub` is the
-person's email, `source` is `"employee" | "student"`, `tags` are the
+`identity` is `{ iss, aud, sub, email, source, tags, jti, iat, exp }`.
+
+**`sub` is Central's stable `Person.id` — this is the identity to key your
+own session/user records on, always.** `email` is carried too, but only as
+a display/contact attribute: Central allows editing an employee's email
+(`EmployeeValidation.UPDATE`), so a lookup or session keyed by email can go
+stale the moment someone's email changes there, silently, mid-session. `sub`
+never has that problem. `source` is `"employee" | "student"`, `tags` are the
 Central-backed access keys Hub's app catalog admitted them with. The token
-itself does not carry a full profile (name, unit, job position, ...) — look
-that up from Central's own `/employees/lookup` or `/students/lookup` using
-`sub`, same as before.
+itself does not carry a full profile (name, unit, job position, ...) - look
+that up from Central's own `/employees/lookup` or `/students/lookup` (both
+accept an `id` query param matching `sub`'s `Person.id` via their
+`person_id` response field) or the combined `/persons/lookup?email=` at
+first sign-in, when you only have an email yet.
 
 Every failure (bad signature, wrong audience, expired, already-used `jti`,
 ...) throws `RelayTokenVerificationError` with no indication of which check
