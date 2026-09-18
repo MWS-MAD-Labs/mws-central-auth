@@ -33,6 +33,14 @@ export interface VerifyRelayTokenOptions {
 
 export class RelayTokenVerificationError extends Error {}
 
+// Module-level, not per-call: a caller that doesn't pass its own
+// replayStore is meant to still get a working single-instance default (see
+// InMemoryReplayStore's own doc comment) - instantiating a fresh one inside
+// verifyRelayToken() on every call made that default a no-op, since each
+// call's "seen" set died with the call itself and hasSeen() could never
+// find a jti any earlier call had marked.
+const defaultReplayStore = new InMemoryReplayStore();
+
 function base64UrlDecode(segment: string): Uint8Array {
   const padded = segment.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(segment.length / 4) * 4, "=");
   return new Uint8Array(Buffer.from(padded, "base64"));
@@ -101,7 +109,7 @@ export async function verifyRelayToken(token: string, options: VerifyRelayTokenO
   if (payload.exp + clockToleranceSeconds < nowSeconds) throw new RelayTokenVerificationError("Relay token has expired.");
   if (payload.iat - clockToleranceSeconds > nowSeconds) throw new RelayTokenVerificationError("Relay token issued in the future.");
 
-  const replayStore = options.replayStore ?? new InMemoryReplayStore();
+  const replayStore = options.replayStore ?? defaultReplayStore;
   if (await replayStore.hasSeen(payload.jti)) throw new RelayTokenVerificationError("Relay token has already been used.");
   await replayStore.markSeen(payload.jti, options.replayTtlSeconds ?? 120);
 
