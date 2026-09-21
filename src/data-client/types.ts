@@ -99,6 +99,10 @@ export interface ClassTeacherAssignment {
   grade_name: string;
   additional_grade_names: string[];
   unit_name: string | null;
+  academic_year_id: string;
+  academic_year: string;
+  academic_year_start_date: string;
+  academic_year_end_date: string | null;
   role: "HOMEROOM" | "SUPPORTING_HOMEROOM" | "SUBJECT_TEACHER";
   subject: string | null;
   workforce_member: {
