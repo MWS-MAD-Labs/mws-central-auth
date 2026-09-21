@@ -59,3 +59,78 @@ export interface ListStudentsParams {
   current_class_id?: string;
   academic_year_id?: string;
 }
+
+// Mirrors Central's EmployeeLookupResponse (server/src/model/employee-api-model.ts).
+export interface EmployeeProfile {
+  id: string;
+  // Person.id - the same stable id space Hub SSO relay tokens use as `sub`
+  // (see mws-central-auth/server's verifyRelayToken). Prefer this over `id`
+  // when correlating with an already-provisioned local User.
+  person_id: string;
+  employee_id: string;
+  full_name: string;
+  nick_name: string;
+  birth_date: string;
+  email: string;
+  gender: string;
+  photo_url: string | null;
+  unit: string;
+  unit_id: string;
+  job_position: string;
+  job_level: string;
+  is_teaching_role: boolean;
+  status: string;
+  employment_type: string;
+}
+
+export interface ListEmployeesParams {
+  page?: number;
+  size?: number;
+  status?: string;
+  unit_id?: string;
+  job_position_id?: string;
+}
+
+// Mirrors Central's ClassTeacherAssignmentResponse
+// (server/src/model/class-teacher-assignment-api-model.ts).
+export interface ClassTeacherAssignment {
+  class_id: string;
+  class_name: string;
+  grade_name: string;
+  additional_grade_names: string[];
+  unit_name: string | null;
+  role: "HOMEROOM" | "SUPPORTING_HOMEROOM" | "SUBJECT_TEACHER";
+  subject: string | null;
+  workforce_member: {
+    type: "EMPLOYEE" | "INTERN";
+    id: string;
+    member_id: string;
+    full_name: string;
+    email: string;
+    unit_name: string;
+    job_position: string;
+    employee_id: string | null;
+  };
+  employee_id: string | null;
+  employee_email: string | null;
+}
+
+// Mirrors Central's StudentSupportAssignmentResponse
+// (server/src/model/student-support-assignment-api-model.ts). Central only
+// has one role today (SPECIAL_ED); kept as a string so a future role
+// doesn't require a client version bump to parse.
+export interface StudentSupportAssignment {
+  workforce_member: {
+    type: "EMPLOYEE" | "INTERN";
+    id: string;
+    member_id: string;
+    full_name: string;
+    email: string;
+    employee_id: string | null;
+  };
+  employee_id: string | null;
+  employee_email: string | null;
+  student_id: string;
+  student_email: string;
+  role: string;
+}

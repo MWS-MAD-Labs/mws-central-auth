@@ -1,10 +1,14 @@
 import {
   CentralApiError,
   type CentralDataClientOptions,
+  type ClassTeacherAssignment,
+  type EmployeeProfile,
+  type ListEmployeesParams,
   type ListStudentsParams,
   type Paging,
   type StudentAcademicHistoryEntry,
   type StudentProfile,
+  type StudentSupportAssignment,
 } from "./types.js";
 
 interface SuccessEnvelope<T> {
@@ -63,24 +67,28 @@ export class CentralDataClient {
     return body as T;
   }
 
+  // Pages through every result automatically - callers that just want "the
+  // whole current list" shouldn't have to hand-roll pagination themselves.
+  private async listAllPages<T>(path: string, params: { page?: number; size?: number; [key: string]: string | number | undefined }): Promise<T[]> {
+    const size = params.size ?? 100;
+    const all: T[] = [];
+    let page = 1;
+    for (;;) {
+      const result = await this.request<PagedEnvelope<T>>(path, { ...params, page, size });
+      all.push(...result.data);
+      if (page >= result.paging.total_page || result.data.length === 0) break;
+      page += 1;
+    }
+    return all;
+  }
+
   async listStudents(params: ListStudentsParams = {}): Promise<{ data: StudentProfile[]; paging: Paging }> {
     const result = await this.request<PagedEnvelope<StudentProfile>>("/students", { ...params });
     return { data: result.data, paging: result.paging };
   }
 
-  // Pages through every result automatically - callers that just want "the
-  // current active roster" shouldn't have to hand-roll pagination.
   async listAllStudents(params: Omit<ListStudentsParams, "page"> = {}): Promise<StudentProfile[]> {
-    const size = params.size ?? 100;
-    const all: StudentProfile[] = [];
-    let page = 1;
-    for (;;) {
-      const { data, paging } = await this.listStudents({ ...params, page, size });
-      all.push(...data);
-      if (page >= paging.total_page || data.length === 0) break;
-      page += 1;
-    }
-    return all;
+    return this.listAllPages<StudentProfile>("/students", { ...params });
   }
 
   async lookupStudent(params: { id?: string; nis?: string; email?: string }): Promise<StudentProfile> {
@@ -91,5 +99,27 @@ export class CentralDataClient {
   async getStudentAcademicHistory(studentId: string): Promise<StudentAcademicHistoryEntry[]> {
     const result = await this.request<SuccessEnvelope<StudentAcademicHistoryEntry[]>>(`/students/${encodeURIComponent(studentId)}/academic-history`);
     return result.data;
+  }
+
+  async listEmployees(params: ListEmployeesParams = {}): Promise<{ data: EmployeeProfile[]; paging: Paging }> {
+    const result = await this.request<PagedEnvelope<EmployeeProfile>>("/employees", { ...params });
+    return { data: result.data, paging: result.paging };
+  }
+
+  async listAllEmployees(params: Omit<ListEmployeesParams, "page"> = {}): Promise<EmployeeProfile[]> {
+    return this.listAllPages<EmployeeProfile>("/employees", { ...params });
+  }
+
+  async lookupEmployee(params: { id?: string; employee_id?: string; email?: string }): Promise<EmployeeProfile> {
+    const result = await this.request<SuccessEnvelope<EmployeeProfile>>("/employees/lookup", params);
+    return result.data;
+  }
+
+  async listAllClassTeacherAssignments(params: { size?: number } = {}): Promise<ClassTeacherAssignment[]> {
+    return this.listAllPages<ClassTeacherAssignment>("/class-teacher-assignments", { ...params });
+  }
+
+  async listAllStudentSupportAssignments(params: { size?: number } = {}): Promise<StudentSupportAssignment[]> {
+    return this.listAllPages<StudentSupportAssignment>("/student-support-assignments", { ...params });
   }
 }
