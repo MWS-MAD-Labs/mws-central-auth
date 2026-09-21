@@ -1,6 +1,6 @@
 {
   "name": "mws-central-auth",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Shared building blocks for MWS apps that integrate with the central identity system: reusable status/error UI (mws-central-auth) plus Hub SSO relay-token verification (mws-central-auth/server).",
   "type": "module",
   "main": "dist/index.cjs",
