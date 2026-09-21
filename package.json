@@ -1,7 +1,7 @@
 {
   "name": "mws-central-auth",
-  "version": "0.4.1",
-  "description": "Shared building blocks for MWS apps that integrate with the central identity system: reusable status/error UI (mws-central-auth) plus Hub SSO relay-token verification (mws-central-auth/server).",
+  "version": "0.5.0",
+  "description": "Shared building blocks for MWS apps that integrate with the central identity system: reusable status/error UI (mws-central-auth), Hub SSO relay-token verification (mws-central-auth/server), and a client for Central's internal student/employee data API (mws-central-auth/data-client).",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -16,13 +16,18 @@
       "types": "./dist/server/index.d.ts",
       "import": "./dist/server/index.js",
       "require": "./dist/server/index.cjs"
+    },
+    "./data-client": {
+      "types": "./dist/data-client/index.d.ts",
+      "import": "./dist/data-client/index.js",
+      "require": "./dist/data-client/index.cjs"
     }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts src/server/index.ts --format esm,cjs --dts",
+    "build": "tsup src/index.ts src/server/index.ts src/data-client/index.ts --format esm,cjs --dts",
     "prepare": "npm run build"
   },
   "peerDependencies": {
