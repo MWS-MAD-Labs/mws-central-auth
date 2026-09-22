@@ -1,6 +1,7 @@
 import {
   CentralApiError,
   type CentralDataClientOptions,
+  type ClassProfile,
   type ClassTeacherAssignment,
   type EmployeeProfile,
   type ListEmployeesParams,
@@ -113,6 +114,10 @@ export class CentralDataClient {
   async lookupEmployee(params: { id?: string; employee_id?: string; email?: string }): Promise<EmployeeProfile> {
     const result = await this.request<SuccessEnvelope<EmployeeProfile>>("/employees/lookup", params);
     return result.data;
+  }
+
+  async listAllClasses(params: { size?: number } = {}): Promise<ClassProfile[]> {
+    return this.listAllPages<ClassProfile>("/classes", { ...params });
   }
 
   async listAllClassTeacherAssignments(params: { size?: number } = {}): Promise<ClassTeacherAssignment[]> {

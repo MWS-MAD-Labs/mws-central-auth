@@ -91,6 +91,22 @@ export interface ListEmployeesParams {
   job_position_id?: string;
 }
 
+// Mirrors Central's ClassResponseForApi (server/src/model/class-api-model.ts).
+// Every active class in the active academic year, independent of whether it
+// has a teacher assigned yet - unlike ClassTeacherAssignment below, which
+// only surfaces a class once it has one.
+export interface ClassProfile {
+  class_id: string;
+  class_name: string;
+  grade_name: string;
+  additional_grade_names: string[];
+  unit_name: string | null;
+  academic_year_id: string;
+  academic_year: string;
+  academic_year_start_date: string;
+  academic_year_end_date: string | null;
+}
+
 // Mirrors Central's ClassTeacherAssignmentResponse
 // (server/src/model/class-teacher-assignment-api-model.ts).
 export interface ClassTeacherAssignment {
