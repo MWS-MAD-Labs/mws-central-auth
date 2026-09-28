@@ -89,6 +89,10 @@ export interface ListEmployeesParams {
   status?: string;
   unit_id?: string;
   job_position_id?: string;
+  // Case-insensitive substring match against full_name or email, for a
+  // "search Central, then grant access" flow. Server-side only - never wire
+  // this to a raw browser-supplied value without server re-validation.
+  q?: string;
 }
 
 // Mirrors Central's ClassResponseForApi (server/src/model/class-api-model.ts).

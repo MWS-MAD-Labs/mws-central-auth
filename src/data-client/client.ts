@@ -111,7 +111,7 @@ export class CentralDataClient {
     return this.listAllPages<EmployeeProfile>("/employees", { ...params });
   }
 
-  async lookupEmployee(params: { id?: string; employee_id?: string; email?: string }): Promise<EmployeeProfile> {
+  async lookupEmployee(params: { id?: string; person_id?: string; employee_id?: string; email?: string }): Promise<EmployeeProfile> {
     const result = await this.request<SuccessEnvelope<EmployeeProfile>>("/employees/lookup", params);
     return result.data;
   }
