@@ -5,6 +5,7 @@ export interface CentralDataClientOptions {
   // "<token_prefix>.<secret>" as issued by Central's Access > API Clients page.
   token: string;
   timeoutMs?: number;
+  fetchImpl?: typeof fetch;
 }
 
 export class CentralApiError extends Error {
@@ -22,6 +23,19 @@ export interface Paging {
   current_page: number;
   total_page: number;
   total_item: number;
+}
+
+export interface ApplicationEntitlement {
+  id: string;
+  person_id: string;
+  application_id: string;
+  organization_id: string;
+  role: string;
+  permissions: string[];
+  version: number;
+  is_active: boolean;
+  granted_at: string;
+  updated_at: string;
 }
 
 // Mirrors Central's StudentLookupResponse (server/src/model/student-api-model.ts)
@@ -157,4 +171,28 @@ export interface StudentSupportAssignment {
   student_id: string;
   student_email: string;
   role: string;
+}
+
+export interface PermissionManifestEntry {
+  key: string;
+  description?: string;
+  // Permissions that must come with this one, for example manage needs read.
+  requires?: string[];
+}
+
+export interface PermissionSyncResult {
+  application_id: string;
+  total: number;
+  added: number;
+  deprecated: string[];
+  // Active roles that still carry a permission this list dropped.
+  affected_roles: { role: string; permissions: string[] }[];
+}
+
+export interface RegisteredPermission {
+  key: string;
+  description: string | null;
+  requires: string[];
+  source: "MANIFEST" | "MANUAL";
+  deprecated: boolean;
 }

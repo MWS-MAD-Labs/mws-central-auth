@@ -1,5 +1,6 @@
 import {
   CentralApiError,
+  type ApplicationEntitlement,
   type CentralDataClientOptions,
   type ClassProfile,
   type ClassTeacherAssignment,
@@ -7,6 +8,9 @@ import {
   type ListEmployeesParams,
   type ListStudentsParams,
   type Paging,
+  type PermissionManifestEntry,
+  type PermissionSyncResult,
+  type RegisteredPermission,
   type StudentAcademicHistoryEntry,
   type StudentProfile,
   type StudentSupportAssignment,
@@ -35,14 +39,31 @@ export class CentralDataClient {
   private readonly baseUrl: string;
   private readonly token: string;
   private readonly timeoutMs: number;
+  private readonly fetchImpl: typeof fetch;
 
   constructor(options: CentralDataClientOptions) {
     this.baseUrl = options.baseUrl.replace(/\/$/, "");
     this.token = options.token;
     this.timeoutMs = options.timeoutMs ?? 10_000;
+    this.fetchImpl = options.fetchImpl ?? fetch;
   }
 
-  private async request<T>(path: string, searchParams?: Record<string, string | number | undefined>): Promise<T> {
+  private request<T>(path: string, searchParams?: Record<string, string | number | undefined>): Promise<T>;
+  private request<T>(
+    path: string,
+    searchParams: Record<string, string | number | undefined>,
+    options: { nullOn404: true },
+  ): Promise<T | null>;
+  private request<T>(
+    path: string,
+    searchParams: Record<string, string | number | undefined> | undefined,
+    options: { method: "PUT"; body: unknown },
+  ): Promise<T>;
+  private async request<T>(
+    path: string,
+    searchParams?: Record<string, string | number | undefined>,
+    options: { nullOn404?: boolean; method?: "GET" | "PUT"; body?: unknown } = {},
+  ): Promise<T | null> {
     const url = new URL(`${this.baseUrl}/api/internal${path}`);
     if (searchParams) {
       for (const [key, value] of Object.entries(searchParams)) {
@@ -52,8 +73,13 @@ export class CentralDataClient {
 
     let response: Response;
     try {
-      response = await fetch(url, {
-        headers: { authorization: `Bearer ${this.token}` },
+      response = await this.fetchImpl(url, {
+        method: options.method ?? "GET",
+        headers: {
+          authorization: `Bearer ${this.token}`,
+          ...(options.body !== undefined ? { "content-type": "application/json" } : {}),
+        },
+        ...(options.body !== undefined ? { body: JSON.stringify(options.body) } : {}),
         signal: AbortSignal.timeout(this.timeoutMs),
       });
     } catch (error) {
@@ -61,6 +87,7 @@ export class CentralDataClient {
     }
 
     const body = (await response.json().catch(() => null)) as (T & { success?: true }) | ErrorEnvelope | null;
+    if (options.nullOn404 && response.status === 404) return null;
     if (!response.ok) {
       const message = body && "errors" in body ? body.errors : `Central API request failed with status ${response.status}`;
       throw new CentralApiError(response.status, message);
@@ -113,6 +140,48 @@ export class CentralDataClient {
 
   async lookupEmployee(params: { id?: string; person_id?: string; employee_id?: string; email?: string }): Promise<EmployeeProfile> {
     const result = await this.request<SuccessEnvelope<EmployeeProfile>>("/employees/lookup", params);
+    return result.data;
+  }
+
+  async lookupApplicationEntitlement(params: {
+    person_id: string;
+    application_id: string;
+  }): Promise<ApplicationEntitlement | null> {
+    const result = await this.request<SuccessEnvelope<ApplicationEntitlement>>(
+      "/application-entitlements/lookup",
+      params,
+      { nullOn404: true },
+    );
+    return result?.data ?? null;
+  }
+
+  // The permissions the application's code understands, sent on deploy. The token must be the
+  // API client made for this application.
+  async publishPermissions(
+    applicationId: string,
+    permissions: PermissionManifestEntry[],
+    options: { confirmRemovals?: boolean } = {},
+  ): Promise<PermissionSyncResult> {
+    const result = await this.request<SuccessEnvelope<PermissionSyncResult>>(
+      `/application-permissions/${encodeURIComponent(applicationId)}`,
+      undefined,
+      { method: "PUT", body: { permissions, confirm_removals: options.confirmRemovals } },
+    );
+    return result.data;
+  }
+
+  async listRegisteredPermissions(applicationId: string): Promise<RegisteredPermission[]> {
+    const result = await this.request<SuccessEnvelope<RegisteredPermission[]>>(
+      `/application-permissions/${encodeURIComponent(applicationId)}`,
+    );
+    return result.data;
+  }
+
+  // Permissions the active roles of the application carry.
+  async permissionUsage(applicationId: string): Promise<string[]> {
+    const result = await this.request<SuccessEnvelope<string[]>>(
+      `/application-permissions/${encodeURIComponent(applicationId)}/usage`,
+    );
     return result.data;
   }
 
