@@ -1,11 +1,11 @@
-import type { ReplayStore } from "./types.js";
+import type { AtomicReplayStore, ReplayStore } from "./types.js";
 
 // Default replay store: fine for a single-instance deployment (matches
 // what mws-mtss-system/mws-daily-checkin already ran with via node-cache),
 // but doesn't share state across instances behind a load balancer. A
 // consumer that scales horizontally should inject its own ReplayStore
 // (Postgres row, Redis key, etc.) instead of relying on this default.
-export class InMemoryReplayStore implements ReplayStore {
+export class InMemoryReplayStore implements ReplayStore, AtomicReplayStore {
   private readonly seenUntil = new Map<string, number>();
 
   hasSeen(jti: string): boolean {
@@ -15,6 +15,13 @@ export class InMemoryReplayStore implements ReplayStore {
 
   markSeen(jti: string, ttlSeconds: number): void {
     this.seenUntil.set(jti, Date.now() + ttlSeconds * 1000);
+  }
+
+  consume(jti: string, ttlSeconds: number): boolean {
+    this.sweep();
+    if (this.seenUntil.has(jti)) return false;
+    this.markSeen(jti, ttlSeconds);
+    return true;
   }
 
   private sweep(): void {

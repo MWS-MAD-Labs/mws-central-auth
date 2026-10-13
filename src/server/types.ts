@@ -16,6 +16,14 @@ export const relayTokenPayloadSchema = z.object({
   email: z.email(),
   source: z.enum(["employee", "student"]),
   tags: z.array(z.string()),
+  entitlement: z.object({
+    id: z.string().min(1),
+    application_id: z.string().min(1),
+    organization_id: z.string().min(1),
+    role: z.string().min(1),
+    permissions: z.array(z.string().min(1)),
+    version: z.number().int().positive(),
+  }).optional(),
   jti: z.uuid(),
   iat: z.number(),
   exp: z.number(),
@@ -26,4 +34,9 @@ export type RelayTokenPayload = z.infer<typeof relayTokenPayloadSchema>;
 export interface ReplayStore {
   hasSeen(jti: string): Promise<boolean> | boolean;
   markSeen(jti: string, ttlSeconds: number): Promise<void> | void;
+}
+
+export interface AtomicReplayStore {
+  // Returns true only for the first consumer of a jti within the TTL.
+  consume(jti: string, ttlSeconds: number): Promise<boolean> | boolean;
 }

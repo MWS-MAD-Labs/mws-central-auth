@@ -1,7 +1,11 @@
 export { verifyRelayToken, RelayTokenVerificationError } from "./verify.js";
 export type { VerifyRelayTokenOptions } from "./verify.js";
 export { InMemoryReplayStore } from "./replay-store.js";
+export { HubExchangeClient, HubExchangeError } from "./hub-exchange-client.js";
+export type { HubExchangeClientOptions } from "./hub-exchange-client.js";
 export { relayTokenPayloadSchema } from "./types.js";
-export type { RelayTokenPayload, ReplayStore } from "./types.js";
+export type { AtomicReplayStore, RelayTokenPayload, ReplayStore } from "./types.js";
 export { verifyHubInternalSecret, parseHubRevocationPayload, HubInternalRequestVerificationError } from "./hub-internal-request.js";
 export type { HubInternalRevocationPayload } from "./hub-internal-request.js";
+export { createHubSso } from "./hub-sso.js";
+export type { CallbackAction, CookieDescriptor, HubSso, HubSsoOptions, RevokeResult, RevokeScope } from "./hub-sso.js";

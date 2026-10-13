@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "mws-central-auth-ui",
+      "name": "mws-central-auth",
       "dependencies": {
         "framer-motion": "^13.1.0",
       },

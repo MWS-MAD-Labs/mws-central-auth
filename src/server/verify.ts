@@ -5,7 +5,12 @@ import { importPublicKeyFromJwks, importPublicKeyFromPem } from "./jwks.js";
 // `crypto` global.
 const subtle = webcrypto.subtle;
 import { InMemoryReplayStore } from "./replay-store.js";
-import { relayTokenPayloadSchema, type RelayTokenPayload, type ReplayStore } from "./types.js";
+import {
+  relayTokenPayloadSchema,
+  type AtomicReplayStore,
+  type RelayTokenPayload,
+  type ReplayStore,
+} from "./types.js";
 
 export interface VerifyRelayTokenOptions {
   // The `aud` claim this app expects on its own tokens - matches the
@@ -25,7 +30,7 @@ export interface VerifyRelayTokenOptions {
   // if it somehow gets reused. Defaults to comfortably outlasting the
   // token's own `exp` - `RELAY_TTL_SECONDS` in mws-hub is 30s.
   replayTtlSeconds?: number;
-  replayStore?: ReplayStore;
+  replayStore?: ReplayStore | AtomicReplayStore;
   fetchImpl?: typeof fetch;
   // Clock skew tolerance between this app's server and Hub's, in seconds.
   clockToleranceSeconds?: number;
@@ -110,8 +115,15 @@ export async function verifyRelayToken(token: string, options: VerifyRelayTokenO
   if (payload.iat - clockToleranceSeconds > nowSeconds) throw new RelayTokenVerificationError("Relay token issued in the future.");
 
   const replayStore = options.replayStore ?? defaultReplayStore;
-  if (await replayStore.hasSeen(payload.jti)) throw new RelayTokenVerificationError("Relay token has already been used.");
-  await replayStore.markSeen(payload.jti, options.replayTtlSeconds ?? 120);
+  const replayTtlSeconds = options.replayTtlSeconds ?? 120;
+  if ("consume" in replayStore) {
+    if (!(await replayStore.consume(payload.jti, replayTtlSeconds))) {
+      throw new RelayTokenVerificationError("Relay token has already been used.");
+    }
+  } else {
+    if (await replayStore.hasSeen(payload.jti)) throw new RelayTokenVerificationError("Relay token has already been used.");
+    await replayStore.markSeen(payload.jti, replayTtlSeconds);
+  }
 
   return payload;
 }
