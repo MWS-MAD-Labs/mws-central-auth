@@ -150,7 +150,7 @@ const sso = createHubSso({
 In the browser, `watchSession({ check, onRevoked })` from `mws-central-auth/client` asks whether the session is still valid
 when a tab comes back into view, so a sign-out in another app shows up at once.
 
-Starter apps for Express and Next.js that already do all of this live in `templates/` (see `templates/README.md`). `zod` (version 4 or newer) must be installed next to the package.
+Starter apps for Express and Next.js (shared session, and the relay flow above) live in `templates/` (see `templates/README.md`). `zod` (version 4 or newer) must be installed next to the package.
 
 An app's logout address is saved once in Central (`.../auth/logout`). The Hub derives the silent logout page and the
 `/auth/revoke-session` call from it.

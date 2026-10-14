@@ -1,32 +1,30 @@
-import { watchSession } from '/vendor/central-auth-client.js';
+import { keepFresh } from '/vendor/central-auth-client.js';
 
 const status = document.getElementById('status');
-const logout = document.getElementById('logout');
-const error = new URLSearchParams(location.search).get('error');
-
-async function loadMe() {
-    const response = await fetch('/api/me', { cache: 'no-store' });
-    return response.ok ? response.json() : null;
-}
+const hubLink = document.getElementById('hub');
 
 (async () => {
-    if (error) {
-        status.textContent = error === 'no_access' ? 'You do not have access to this application.' : 'Sign-in failed. Try again from the Hub.';
+    const response = await fetch('/api/me', { cache: 'no-store' });
+    if (response.status === 403) {
+        status.textContent = 'You do not have access to this application.';
         return;
     }
-    const me = await loadMe();
-    if (!me) {
+    if (!response.ok) {
+        // The session is gone: the page asks the server again, which sends the person to the Hub.
         location.href = '/';
         return;
     }
+    const me = await response.json();
     status.textContent = `Signed in as ${me.email} (${me.role}).`;
-    logout.hidden = false;
+    hubLink.href = me.hub.homeUrl;
+    hubLink.hidden = false;
 
-    // When a sign-out in another app ends this session, leave when the tab is looked at again.
-    watchSession({
-        check: async () => (await fetch('/api/me', { cache: 'no-store' })).ok,
-        onRevoked: () => {
-            location.href = '/';
+    // Ask the Hub for a new token shortly before this one ends. Signing out of the Hub ends the session here too.
+    keepFresh({
+        refreshUrl: me.hub.refreshUrl,
+        initialExpiresIn: me.expiresIn,
+        onEnded: () => {
+            location.href = me.hub.homeUrl;
         },
     });
 })();

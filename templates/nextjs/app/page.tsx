@@ -1,37 +1,39 @@
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { hubSso } from "@/lib/hub-sso";
-import { currentUser } from "@/lib/session";
-import { SessionWatcher } from "./session-watcher";
+import { accessFor } from "@/lib/access";
+import { hub, required } from "@/lib/hub";
+import { SessionKeeper } from "./session-keeper";
 
 export const dynamic = "force-dynamic";
 
-export default async function Home({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
-  const { error } = await searchParams;
-  const user = await currentUser();
+export default async function Home({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  const query = await searchParams;
+  const session = hub();
+  const claims = await session.fromCookieHeader((await headers()).get("cookie"));
 
-  if (!user) {
-    if (error) {
-      return (
-        <main>
-          <h1>My New App</h1>
-          <p>{error === "no_access" ? "You do not have access to this application." : "Sign-in failed. Try again from the Hub."}</p>
-        </main>
-      );
-    }
-    // A visit without a session goes to the Hub, where the person picks an app.
-    redirect(hubSso().homeUrl());
-  }
+  // No session: the Hub gives one back if the person still has it, or shows its front page.
+  const step = session.step({ claims, restored: "restored" in query });
+  if (step === "restore") redirect(session.restoreUrl(new URL("/", required("APP_PUBLIC_URL")).toString()));
+  if (step === "hub" || !claims) redirect(session.homeUrl());
+
+  const access = await accessFor(claims.sub).catch(() => undefined);
+  if (access === undefined) return <main><h1>My New App</h1><p>Try again shortly.</p></main>;
+  if (access === null) return <main><h1>My New App</h1><p>You do not have access to this application.</p></main>;
 
   return (
     <main>
       <h1>My New App</h1>
       <p>
-        Signed in as {user.email} ({user.role}).
+        Signed in as {claims.email} ({access.role}).
       </p>
       <p>
-        <a href="/auth/logout">Log out</a>
+        <a href={session.homeUrl()}>Back to the Hub</a>
       </p>
-      <SessionWatcher />
+      <SessionKeeper
+        refreshUrl={session.refreshUrl()}
+        homeUrl={session.homeUrl()}
+        expiresIn={Math.max(claims.exp - Math.floor(Date.now() / 1000), 0)}
+      />
     </main>
   );
 }

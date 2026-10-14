@@ -2,7 +2,7 @@
   "name": "my-new-app",
   "version": "0.1.0",
   "private": true,
-  "description": "Starter for an MWS app behind the Hub. Signs in and out through mws-central-auth.",
+  "description": "Starter for an MWS app on the Hub's parent domain. Reads the Hub's shared session; no sign-in or sign-out code of its own.",
   "scripts": {
     "dev": "next dev --port 3100",
     "build": "next build",
@@ -10,8 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "jose": "^6.0.0",
-    "mws-central-auth": "github:MWS-MAD-Labs/mws-central-auth#v0.7.0",
+    "mws-central-auth": "github:MWS-MAD-Labs/mws-central-auth#v0.8.0",
     "next": "^16.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -1,8 +1,9 @@
-import { requireUser } from "@/lib/session";
+import { hub } from "@/lib/hub";
+import { requireUser } from "@/lib/user";
 
-export async function GET() {
-  const user = await requireUser();
+export async function GET(request: Request) {
+  const user = await requireUser(request);
   if (user instanceof Response) return user;
-  const { id, email, role, permissions } = user;
-  return Response.json({ id, email, role, permissions });
+  const session = hub();
+  return Response.json({ ...user, hub: { homeUrl: session.homeUrl(), refreshUrl: session.refreshUrl() } });
 }

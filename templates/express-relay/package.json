@@ -1,0 +1,19 @@
+{
+  "name": "my-new-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Starter for an MWS app behind the Hub. Signs in and out through mws-central-auth.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mws-central-auth": "github:MWS-MAD-Labs/mws-central-auth#v0.7.0",
+    "zod": "^4.0.0"
+  }
+}
