@@ -150,6 +150,12 @@ describe('the starter app on the shared session', () => {
         assert.equal((await get('/api/things', accessToken('gina'))).status, 403);
     });
 
+    it('opens from the Hub card with no code to handle', async () => {
+        const response = await get('/auth/sso?code=ignored');
+        assert.equal(response.status, 302);
+        assert.equal(response.headers.get('location'), '/');
+    });
+
     it('serves the browser half from the package', async () => {
         const response = await get('/vendor/central-auth-client.js');
         assert.equal(response.status, 200);

@@ -181,7 +181,7 @@ import { keepFresh } from "mws-central-auth/client";
 keepFresh({ refreshUrl: hubRefreshUrl, onEnded: () => (location.href = hubHomeUrl) });
 ```
 
-The app gets only identity from the token. What the person may do in the app comes from Central (the entitlement lookup), as before. `createHubSso` (the code and relay token flow above) stays for apps that are not on the parent domain.
+Which way an application signs in is set per application in Central (Sign-In Way: Shared Hub Session or Hub Code and Token), and the `.env` block Central shows follows it: the shared way needs only `HUB_BASE_URL`, no Hub secret. The app gets only identity from the token. What the person may do in the app comes from Central (the entitlement lookup), as before. `createHubSso` (the code and relay token flow above) stays for apps that are not on the parent domain.
 
 ## Usage: Central data client (`mws-central-auth/data-client`)
 

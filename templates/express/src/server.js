@@ -38,6 +38,10 @@ function createApp() {
         res.type('js').sendFile(path.join(dir, 'index.js'));
     });
 
+    // Where the Hub's card opens the app (the launch address Central keeps). There is nothing to sign in to: the
+    // session is read from the Hub's cookie, so this only sends the browser to the page.
+    app.get('/auth/sso', (req, res) => res.redirect('/'));
+
     // The page. No session: the Hub restores one if the person still has it, or shows its front page.
     app.get('/', async (req, res, next) => {
         const session = hub();

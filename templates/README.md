@@ -23,7 +23,7 @@ There is no sign-in route, no session store and no logout: the page shows a "Bac
 
 ### Set up a new app
 
-1. In Central (Application Access, Add Application): give the app an id, name and address. Add its roles (each needs at least one permission) and the groups that get them. Press Connect to get the `.env` block, and publish it to the Hub when it is ready.
+1. In Central (Application Access, Add Application): give the app an id, name and address. The Sign-In Way is **Shared Hub Session** by default, which is what these starters are; its `.env` block is short (no Hub secret). The launch address stays `…/auth/sso`, which the starters answer by sending the browser to the page. Add its roles (each needs at least one permission) and the groups that get them. Press Connect to get the `.env` block, and publish it to the Hub when it is ready.
 2. Copy a template folder and give the app its name in `package.json`.
 3. Copy `.env.example` to `.env`, paste the block from Central, and set `APP_PUBLIC_URL`.
 4. `npm install`, then `npm run dev` (Next.js) or `npm start` (Express). The Hub card opens the app signed in.
