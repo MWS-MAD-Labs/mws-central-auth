@@ -143,7 +143,7 @@ const sso = createHubSso({
    `"restart"` means the Hub started this (a card click, no `state`): redirect to `/auth/hub`. `"reject"` is an error.
    `"continue"`: clear the cookie (`sso.callback.clearCookie()`), then `await sso.exchange(code, state)` and verify the token.
 3. `GET /auth/logout` (the person pressed Logout): clear the app's own session, then redirect the browser, in the same tab,
-   to `sso.logoutUrl(email)`. The Hub ends the person's sessions in the other apps, keeps its own, and shows its front page.
+   to `sso.logoutUrl(email)`. Only this app signs out: the Hub keeps its session and the other apps stay signed in. The browser lands on the Hub front page.
 4. `POST /auth/revoke-session` (the Hub ends sessions): `sso.revoke.handle({ secret, body, apply })`. `apply` receives
    `{ personId, email, all }` and ends those sessions (usually by bumping a session version). Return whether anyone was affected.
 

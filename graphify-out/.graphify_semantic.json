@@ -1,0 +1,709 @@
+{
+  "nodes": [
+    {
+      "id": "readme_mws_central_auth",
+      "label": "mws-central-auth (package)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_mws_central_auth_server",
+      "label": "mws-central-auth/server entry point",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_mws_central_auth_ui",
+      "label": "mws-central-auth UI entry point",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_verifyrelaytoken",
+      "label": "verifyRelayToken",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_relaytokenverificationerror",
+      "label": "RelayTokenVerificationError",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_statusmessagepage",
+      "label": "StatusMessagePage",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_theme_prop",
+      "label": "StatusMessagePage theme prop",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sso_relay_token_flow",
+      "label": "SSO relay token exchange flow",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_apps_launch_endpoint",
+      "label": "/apps/:appId/launch (Hub)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sso_exchange_endpoint",
+      "label": "POST /sso/exchange (Hub)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_jwks_lookup",
+      "label": "Dynamic JWKS lookup for key rotation",
+      "file_type": "rationale",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_publickeypem_fixed_key",
+      "label": "Fixed public key (publicKeyPem) verification",
+      "file_type": "rationale",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_hub_sso_public_key_env",
+      "label": "HUB_SSO_PUBLIC_KEY env var pattern",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_mws_mtss_system",
+      "label": "mws-mtss-system",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_mws_daily_checkin",
+      "label": "mws-daily-checkin",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_identity_object",
+      "label": "identity object (verifyRelayToken result)",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_person_id_sub_claim",
+      "label": "sub as Central's stable Person.id",
+      "file_type": "rationale",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_email_display_attribute",
+      "label": "email as display/contact attribute (not a key)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_employeevalidation_update",
+      "label": "EmployeeValidation.UPDATE (Central)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_employees_lookup_endpoint",
+      "label": "/employees/lookup (Central)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_students_lookup_endpoint",
+      "label": "/students/lookup (Central)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_persons_lookup_endpoint",
+      "label": "/persons/lookup?email= (Central)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_inmemoryreplaystore",
+      "label": "InMemoryReplayStore",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_replaystore_interface",
+      "label": "ReplayStore option (injectable)",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_jti_single_use_enforcement",
+      "label": "single-use jti enforcement",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_tsup_build",
+      "label": "tsup build (prepare script)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_bun_local_dev",
+      "label": "bun (local dev tooling)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_hub",
+      "label": "Hub (mws-hub identity relay)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_central",
+      "label": "Central (identity source of truth)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "readme_mws_central_auth",
+      "target": "readme_mws_central_auth_server",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth",
+      "target": "readme_mws_central_auth_ui",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth_server",
+      "target": "readme_verifyrelaytoken",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth_server",
+      "target": "readme_relaytokenverificationerror",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth_ui",
+      "target": "readme_statusmessagepage",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_statusmessagepage",
+      "target": "readme_theme_prop",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_jwks_lookup",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_publickeypem_fixed_key",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_publickeypem_fixed_key",
+      "target": "readme_hub_sso_public_key_env",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_hub_sso_public_key_env",
+      "target": "readme_mws_mtss_system",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_hub_sso_public_key_env",
+      "target": "readme_mws_daily_checkin",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_relaytokenverificationerror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_inmemoryreplaystore",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_inmemoryreplaystore",
+      "target": "readme_replaystore_interface",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_identity_object",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_identity_object",
+      "target": "readme_person_id_sub_claim",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_identity_object",
+      "target": "readme_email_display_attribute",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_person_id_sub_claim",
+      "target": "readme_email_display_attribute",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_email_display_attribute",
+      "target": "readme_employeevalidation_update",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_person_id_sub_claim",
+      "target": "readme_employees_lookup_endpoint",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_person_id_sub_claim",
+      "target": "readme_students_lookup_endpoint",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_person_id_sub_claim",
+      "target": "readme_persons_lookup_endpoint",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sso_relay_token_flow",
+      "target": "readme_apps_launch_endpoint",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sso_relay_token_flow",
+      "target": "readme_sso_exchange_endpoint",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sso_exchange_endpoint",
+      "target": "readme_verifyrelaytoken",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_apps_launch_endpoint",
+      "target": "readme_hub",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sso_exchange_endpoint",
+      "target": "readme_hub",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_person_id_sub_claim",
+      "target": "readme_central",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_hub",
+      "target": "readme_central",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_jwks_lookup",
+      "target": "readme_hub",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth",
+      "target": "readme_tsup_build",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth",
+      "target": "readme_bun_local_dev",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_jti_single_use_enforcement",
+      "target": "readme_inmemoryreplaystore",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_jti_single_use_enforcement",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "sso_relay_flow",
+      "label": "SSO relay token exchange flow (Hub launch, code exchange, verification)",
+      "nodes": [
+        "readme_apps_launch_endpoint",
+        "readme_sso_exchange_endpoint",
+        "readme_verifyrelaytoken",
+        "readme_relaytokenverificationerror"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md"
+    },
+    {
+      "id": "identity_keying_rationale",
+      "label": "Rationale for keying on sub (Person.id) instead of email",
+      "nodes": [
+        "readme_person_id_sub_claim",
+        "readme_email_display_attribute",
+        "readme_employeevalidation_update"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md"
+    },
+    {
+      "id": "key_verification_options",
+      "label": "Two token verification key strategies",
+      "nodes": [
+        "readme_verifyrelaytoken",
+        "readme_jwks_lookup",
+        "readme_publickeypem_fixed_key"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

@@ -59,7 +59,7 @@ router.get('/sso', async (req, res) => {
     }
 });
 
-// 3. The person pressed Logout: end this session, then let the Hub end the others and show its front page.
+// 3. The person pressed Logout: end this session, then go to the Hub front page. The Hub and the other apps stay signed in.
 router.get('/logout', (req, res) => {
     const user = currentUser(req);
     endSession(res);

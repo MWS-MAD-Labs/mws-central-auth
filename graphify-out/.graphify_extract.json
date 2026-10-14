@@ -1,0 +1,4406 @@
+{
+  "nodes": [
+    {
+      "id": "package",
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_name",
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_version",
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_description",
+      "label": "description",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_type",
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_main",
+      "label": "main",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_module",
+      "label": "module",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_types",
+      "label": "types",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_exports",
+      "label": "exports",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_exports_server",
+      "label": "./server",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_server_types",
+      "label": "types",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_server_import",
+      "label": "import",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_server_require",
+      "label": "require",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_exports_data_client",
+      "label": "./data-client",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_data_client_types",
+      "label": "types",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_data_client_import",
+      "label": "import",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_data_client_require",
+      "label": "require",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_files",
+      "label": "files",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_dist",
+      "label": "dist",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_scripts_build",
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_scripts_prepare",
+      "label": "prepare",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_peerdependencies",
+      "label": "peerDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L33",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_peerdependencies_react",
+      "label": "react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "_origin": "ast"
+    },
+    {
+      "id": "react",
+      "label": "react",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_peerdependencies_zod",
+      "label": "zod",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "_origin": "ast"
+    },
+    {
+      "id": "zod",
+      "label": "zod",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_peerdependenciesmeta",
+      "label": "peerDependenciesMeta",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_peerdependenciesmeta_react",
+      "label": "react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_react_optional",
+      "label": "optional",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_peerdependenciesmeta_zod",
+      "label": "zod",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_zod_optional",
+      "label": "optional",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies",
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L41",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies_types_node",
+      "label": "@types/node",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L42",
+      "_origin": "ast"
+    },
+    {
+      "id": "types_node",
+      "label": "@types/node",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L42",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies_types_react",
+      "label": "@types/react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L43",
+      "_origin": "ast"
+    },
+    {
+      "id": "types_react",
+      "label": "@types/react",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L43",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies_react",
+      "label": "react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L44",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies_tsup",
+      "label": "tsup",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L45",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsup",
+      "label": "tsup",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L45",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies_typescript",
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L46",
+      "_origin": "ast"
+    },
+    {
+      "id": "typescript",
+      "label": "typescript",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L46",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies_zod",
+      "label": "zod",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L47",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_license",
+      "label": "license",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L49",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_private",
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L50",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_repository",
+      "label": "repository",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L51",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_repository_type",
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L52",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_repository_url",
+      "label": "url",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L53",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_dependencies",
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L55",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_dependencies_framer_motion",
+      "label": "framer-motion",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L56",
+      "_origin": "ast"
+    },
+    {
+      "id": "framer_motion",
+      "label": "framer-motion",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L56",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_statusmessagepage",
+      "label": "StatusMessagePage.tsx",
+      "file_type": "code",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_statusmessagepage_statusmessageaction",
+      "label": "StatusMessageAction",
+      "file_type": "code",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_statusmessagepage_statusmessagetheme",
+      "label": "StatusMessageTheme",
+      "file_type": "code",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_statusmessagepage_statusmessagepageprops",
+      "label": "StatusMessagePageProps",
+      "file_type": "code",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_statusmessagepage_default_theme",
+      "label": "DEFAULT_THEME",
+      "file_type": "code",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L29",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_statusmessagepage_buildstyles",
+      "label": "buildStyles()",
+      "file_type": "code",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L38",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_statusmessagepage_statusmessagepage",
+      "label": "StatusMessagePage()",
+      "file_type": "code",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L107",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client",
+      "label": "client.ts",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_successenvelope",
+      "label": "SuccessEnvelope",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L15",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_pagedenvelope",
+      "label": "PagedEnvelope",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_errorenvelope",
+      "label": "ErrorEnvelope",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L26",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient",
+      "label": "CentralDataClient",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L34",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L39",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_request",
+      "label": ".request()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L45",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_listallpages",
+      "label": ".listAllPages()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L73",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_liststudents",
+      "label": ".listStudents()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L86",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_listallstudents",
+      "label": ".listAllStudents()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L91",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_lookupstudent",
+      "label": ".lookupStudent()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L95",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_getstudentacademichistory",
+      "label": ".getStudentAcademicHistory()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L100",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_listemployees",
+      "label": ".listEmployees()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L105",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_listallemployees",
+      "label": ".listAllEmployees()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L110",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_lookupemployee",
+      "label": ".lookupEmployee()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L114",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_listallclasses",
+      "label": ".listAllClasses()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L119",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_listallclassteacherassignments",
+      "label": ".listAllClassTeacherAssignments()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L123",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_client_centraldataclient_listallstudentsupportassignments",
+      "label": ".listAllStudentSupportAssignments()",
+      "file_type": "code",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L127",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_index",
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types",
+      "label": "types.ts",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_centraldataclientoptions",
+      "label": "CentralDataClientOptions",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_centralapierror",
+      "label": "CentralApiError",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_centralapierror_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_paging",
+      "label": "Paging",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_studentprofile",
+      "label": "StudentProfile",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L29",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_studentacademichistoryentry",
+      "label": "StudentAcademicHistoryEntry",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L45",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_liststudentsparams",
+      "label": "ListStudentsParams",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L54",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_employeeprofile",
+      "label": "EmployeeProfile",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L64",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_listemployeesparams",
+      "label": "ListEmployeesParams",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L86",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_classprofile",
+      "label": "ClassProfile",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L98",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_classteacherassignment",
+      "label": "ClassTeacherAssignment",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L112",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_client_types_studentsupportassignment",
+      "label": "StudentSupportAssignment",
+      "file_type": "code",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L142",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_index",
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/index.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_hub_internal_request",
+      "label": "hub-internal-request.ts",
+      "file_type": "code",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_hub_internal_request_hubinternalrevocationpayloadschema",
+      "label": "hubInternalRevocationPayloadSchema",
+      "file_type": "code",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_hub_internal_request_hubinternalrevocationpayload",
+      "label": "HubInternalRevocationPayload",
+      "file_type": "code",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_hub_internal_request_hubinternalrequestverificationerror",
+      "label": "HubInternalRequestVerificationError",
+      "file_type": "code",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_hub_internal_request_verifyhubinternalsecret",
+      "label": "verifyHubInternalSecret()",
+      "file_type": "code",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_hub_internal_request_parsehubrevocationpayload",
+      "label": "parseHubRevocationPayload()",
+      "file_type": "code",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L28",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_index",
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/server/index.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_jwks",
+      "label": "jwks.ts",
+      "file_type": "code",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_jwks_jsonwebkey",
+      "label": "JsonWebKey",
+      "file_type": "code",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_jwks_jwks",
+      "label": "Jwks",
+      "file_type": "code",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L19",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_jwks_cache",
+      "label": "cache",
+      "file_type": "code",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L28",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_jwks_loadjwks",
+      "label": "loadJwks()",
+      "file_type": "code",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L30",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_jwks_importpublickeyfromjwks",
+      "label": "importPublicKeyFromJwks()",
+      "file_type": "code",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L45",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_jwks_importpublickeyfrompem",
+      "label": "importPublicKeyFromPem()",
+      "file_type": "code",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L74",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_replay_store",
+      "label": "replay-store.ts",
+      "file_type": "code",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_replay_store_inmemoryreplaystore",
+      "label": "InMemoryReplayStore",
+      "file_type": "code",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_replay_store_inmemoryreplaystore_hasseen",
+      "label": ".hasSeen()",
+      "file_type": "code",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_replay_store_inmemoryreplaystore_markseen",
+      "label": ".markSeen()",
+      "file_type": "code",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_replay_store_inmemoryreplaystore_sweep",
+      "label": ".sweep()",
+      "file_type": "code",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_types",
+      "label": "types.ts",
+      "file_type": "code",
+      "source_file": "src/server/types.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_types_relaytokenpayloadschema",
+      "label": "relayTokenPayloadSchema",
+      "file_type": "code",
+      "source_file": "src/server/types.ts",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_types_relaytokenpayload",
+      "label": "RelayTokenPayload",
+      "file_type": "code",
+      "source_file": "src/server/types.ts",
+      "source_location": "L24",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_types_replaystore",
+      "label": "ReplayStore",
+      "file_type": "code",
+      "source_file": "src/server/types.ts",
+      "source_location": "L26",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_types_replaystore_hasseen",
+      "label": ".hasSeen()",
+      "file_type": "code",
+      "source_file": "src/server/types.ts",
+      "source_location": "L27",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_types_replaystore_markseen",
+      "label": ".markSeen()",
+      "file_type": "code",
+      "source_file": "src/server/types.ts",
+      "source_location": "L28",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_verify",
+      "label": "verify.ts",
+      "file_type": "code",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_verify_verifyrelaytokenoptions",
+      "label": "VerifyRelayTokenOptions",
+      "file_type": "code",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_verify_relaytokenverificationerror",
+      "label": "RelayTokenVerificationError",
+      "file_type": "code",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L34",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_verify_defaultreplaystore",
+      "label": "defaultReplayStore",
+      "file_type": "code",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L42",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_verify_base64urldecode",
+      "label": "base64UrlDecode()",
+      "file_type": "code",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L44",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_verify_base64urldecodejson",
+      "label": "base64UrlDecodeJson()",
+      "file_type": "code",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L49",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_verify_verifyrelaytoken",
+      "label": "verifyRelayToken()",
+      "file_type": "code",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L57",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_server_verify_requirekid",
+      "label": "requireKid()",
+      "file_type": "code",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L119",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig",
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L2",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_target",
+      "label": "target",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_lib",
+      "label": "lib",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_es2020",
+      "label": "ES2020",
+      "file_type": "concept",
+      "source_file": "tsconfig.json",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_dom",
+      "label": "DOM",
+      "file_type": "concept",
+      "source_file": "tsconfig.json",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_types",
+      "label": "types",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_node",
+      "label": "node",
+      "file_type": "concept",
+      "source_file": "tsconfig.json",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_jsx",
+      "label": "jsx",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_module",
+      "label": "module",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_moduleresolution",
+      "label": "moduleResolution",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_declaration",
+      "label": "declaration",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L9",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_strict",
+      "label": "strict",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_esmoduleinterop",
+      "label": "esModuleInterop",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_skiplibcheck",
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_rootdir",
+      "label": "rootDir",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L13",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_outdir",
+      "label": "outDir",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_compileroptions_ignoredeprecations",
+      "label": "ignoreDeprecations",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L15",
+      "_origin": "ast"
+    },
+    {
+      "id": "tsconfig_include",
+      "label": "include",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_src",
+      "label": "src",
+      "file_type": "concept",
+      "source_file": "tsconfig.json",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "readme_mws_central_auth",
+      "label": "mws-central-auth (package)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_mws_central_auth_server",
+      "label": "mws-central-auth/server entry point",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_mws_central_auth_ui",
+      "label": "mws-central-auth UI entry point",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_verifyrelaytoken",
+      "label": "verifyRelayToken",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_relaytokenverificationerror",
+      "label": "RelayTokenVerificationError",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_statusmessagepage",
+      "label": "StatusMessagePage",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_theme_prop",
+      "label": "StatusMessagePage theme prop",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sso_relay_token_flow",
+      "label": "SSO relay token exchange flow",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_apps_launch_endpoint",
+      "label": "/apps/:appId/launch (Hub)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sso_exchange_endpoint",
+      "label": "POST /sso/exchange (Hub)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_jwks_lookup",
+      "label": "Dynamic JWKS lookup for key rotation",
+      "file_type": "rationale",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_publickeypem_fixed_key",
+      "label": "Fixed public key (publicKeyPem) verification",
+      "file_type": "rationale",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_hub_sso_public_key_env",
+      "label": "HUB_SSO_PUBLIC_KEY env var pattern",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_mws_mtss_system",
+      "label": "mws-mtss-system",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_mws_daily_checkin",
+      "label": "mws-daily-checkin",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_identity_object",
+      "label": "identity object (verifyRelayToken result)",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_person_id_sub_claim",
+      "label": "sub as Central's stable Person.id",
+      "file_type": "rationale",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_email_display_attribute",
+      "label": "email as display/contact attribute (not a key)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_employeevalidation_update",
+      "label": "EmployeeValidation.UPDATE (Central)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_employees_lookup_endpoint",
+      "label": "/employees/lookup (Central)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_students_lookup_endpoint",
+      "label": "/students/lookup (Central)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_persons_lookup_endpoint",
+      "label": "/persons/lookup?email= (Central)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_inmemoryreplaystore",
+      "label": "InMemoryReplayStore",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_replaystore_interface",
+      "label": "ReplayStore option (injectable)",
+      "file_type": "code",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_jti_single_use_enforcement",
+      "label": "single-use jti enforcement",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_tsup_build",
+      "label": "tsup build (prepare script)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_bun_local_dev",
+      "label": "bun (local dev tooling)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_hub",
+      "label": "Hub (mws-hub identity relay)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_central",
+      "label": "Central (identity source of truth)",
+      "file_type": "concept",
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "package",
+      "target": "package_name",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_version",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_description",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_type",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_module",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_types",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_exports",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_exports",
+      "target": "package_exports_server",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_exports_server",
+      "target": "package_server_types",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_exports_server",
+      "target": "package_server_import",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_exports_server",
+      "target": "package_server_require",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_exports",
+      "target": "package_exports_data_client",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_exports_data_client",
+      "target": "package_data_client_types",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_exports_data_client",
+      "target": "package_data_client_import",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_exports_data_client",
+      "target": "package_data_client_require",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_files",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_files",
+      "target": "ref_dist",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_scripts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_build",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_prepare",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_peerdependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_peerdependencies",
+      "target": "package_peerdependencies_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_peerdependencies_react",
+      "target": "react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package_peerdependencies",
+      "target": "package_peerdependencies_zod",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_peerdependencies_zod",
+      "target": "zod",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_peerdependenciesmeta",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_peerdependenciesmeta",
+      "target": "package_peerdependenciesmeta_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_peerdependenciesmeta_react",
+      "target": "package_react_optional",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_peerdependenciesmeta",
+      "target": "package_peerdependenciesmeta_zod",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_peerdependenciesmeta_zod",
+      "target": "package_zod_optional",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_devdependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_types_node",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies_types_node",
+      "target": "types_node",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L42",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_types_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies_types_react",
+      "target": "types_react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies_react",
+      "target": "react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L44",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_tsup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies_tsup",
+      "target": "tsup",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_typescript",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies_typescript",
+      "target": "typescript",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_zod",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies_zod",
+      "target": "zod",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L47",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_license",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_private",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_repository",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_repository",
+      "target": "package_repository_type",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_repository",
+      "target": "package_repository_url",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_dependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_dependencies",
+      "target": "package_dependencies_framer_motion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_dependencies_framer_motion",
+      "target": "framer_motion",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L56",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "src_statusmessagepage",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_statusmessagepage",
+      "target": "ref_framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_statusmessagepage",
+      "target": "src_statusmessagepage_statusmessageaction",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_statusmessagepage",
+      "target": "src_statusmessagepage_statusmessagetheme",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_statusmessagepage",
+      "target": "src_statusmessagepage_statusmessagepageprops",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_statusmessagepage",
+      "target": "src_statusmessagepage_default_theme",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_statusmessagepage",
+      "target": "src_statusmessagepage_buildstyles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_statusmessagepage",
+      "target": "src_statusmessagepage_statusmessagepage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L107",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_statusmessagepage_statusmessagepage",
+      "target": "src_statusmessagepage_buildstyles",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/StatusMessagePage.tsx",
+      "source_location": "L115",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types_centralapierror",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types_centraldataclientoptions",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types_classprofile",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types_classteacherassignment",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types_employeeprofile",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types_listemployeesparams",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types_liststudentsparams",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types_paging",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types_studentacademichistoryentry",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types_studentprofile",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_types_studentsupportassignment",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_client_successenvelope",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_client_pagedenvelope",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_client_errorenvelope",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client",
+      "target": "src_data_client_client_centraldataclient",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_request",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_listallpages",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_liststudents",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_listallstudents",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L91",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_lookupstudent",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L95",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_getstudentacademichistory",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_listemployees",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L105",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_listallemployees",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L110",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_lookupemployee",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_listallclasses",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L119",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_listallclassteacherassignments",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L123",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient",
+      "target": "src_data_client_client_centraldataclient_listallstudentsupportassignments",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L127",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallstudents",
+      "target": "src_data_client_client_centraldataclient_listallpages",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L92",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallemployees",
+      "target": "src_data_client_client_centraldataclient_listallpages",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L111",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallclasses",
+      "target": "src_data_client_client_centraldataclient_listallpages",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallclassteacherassignments",
+      "target": "src_data_client_client_centraldataclient_listallpages",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L124",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallstudentsupportassignments",
+      "target": "src_data_client_client_centraldataclient_listallpages",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L128",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_client",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_client_centraldataclient",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types_centralapierror",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types_centraldataclientoptions",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types_classprofile",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types_classteacherassignment",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types_employeeprofile",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types_listemployeesparams",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types_liststudentsparams",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types_paging",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types_studentacademichistoryentry",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types_studentprofile",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types_studentsupportassignment",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types",
+      "target": "src_data_client_types_centraldataclientoptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types",
+      "target": "src_data_client_types_centralapierror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types_centralapierror",
+      "target": "src_data_client_types_centralapierror_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types",
+      "target": "src_data_client_types_paging",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types",
+      "target": "src_data_client_types_studentprofile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types",
+      "target": "src_data_client_types_studentacademichistoryentry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types",
+      "target": "src_data_client_types_liststudentsparams",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types",
+      "target": "src_data_client_types_employeeprofile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types",
+      "target": "src_data_client_types_listemployeesparams",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types",
+      "target": "src_data_client_types_classprofile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L98",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types",
+      "target": "src_data_client_types_classteacherassignment",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_types",
+      "target": "src_data_client_types_studentsupportassignment",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/types.ts",
+      "source_location": "L142",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_index",
+      "target": "src_statusmessagepage",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_index",
+      "target": "src_statusmessagepage",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_index",
+      "target": "src_statusmessagepage_statusmessagepageprops",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_index",
+      "target": "src_statusmessagepage_statusmessageaction",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_index",
+      "target": "src_statusmessagepage_statusmessagetheme",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_hub_internal_request",
+      "target": "ref_node_crypto",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_hub_internal_request",
+      "target": "ref_zod",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_hub_internal_request",
+      "target": "src_server_hub_internal_request_hubinternalrevocationpayloadschema",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_hub_internal_request",
+      "target": "src_server_hub_internal_request_hubinternalrevocationpayload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_hub_internal_request",
+      "target": "src_server_hub_internal_request_hubinternalrequestverificationerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_hub_internal_request",
+      "target": "src_server_hub_internal_request_verifyhubinternalsecret",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_hub_internal_request",
+      "target": "src_server_hub_internal_request_parsehubrevocationpayload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/hub-internal-request.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_verify",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_verify_verifyrelaytoken",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_verify_relaytokenverificationerror",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_verify",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_verify_verifyrelaytokenoptions",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_replay_store",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_replay_store_inmemoryreplaystore",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_types",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_types_relaytokenpayloadschema",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_types",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_types_relaytokenpayload",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_types_replaystore",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_hub_internal_request",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_hub_internal_request_verifyhubinternalsecret",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_hub_internal_request_parsehubrevocationpayload",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_hub_internal_request_hubinternalrequestverificationerror",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_hub_internal_request",
+      "relation": "imports_from",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_hub_internal_request_hubinternalrevocationpayload",
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_jwks",
+      "target": "ref_node_crypto",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_jwks",
+      "target": "src_server_jwks_jsonwebkey",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_jwks",
+      "target": "src_server_jwks_jwks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_jwks",
+      "target": "src_server_jwks_cache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_jwks",
+      "target": "src_server_jwks_loadjwks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_jwks",
+      "target": "src_server_jwks_importpublickeyfromjwks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_jwks",
+      "target": "src_server_jwks_importpublickeyfrompem",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_jwks_importpublickeyfromjwks",
+      "target": "src_server_jwks_loadjwks",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/jwks.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_replay_store",
+      "target": "src_server_types",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_replay_store",
+      "target": "src_server_types_replaystore",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_replay_store",
+      "target": "src_server_replay_store_inmemoryreplaystore",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_replay_store_inmemoryreplaystore",
+      "target": "src_server_replay_store_inmemoryreplaystore_hasseen",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_replay_store_inmemoryreplaystore",
+      "target": "src_server_replay_store_inmemoryreplaystore_markseen",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_replay_store_inmemoryreplaystore",
+      "target": "src_server_replay_store_inmemoryreplaystore_sweep",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_replay_store_inmemoryreplaystore_hasseen",
+      "target": "src_server_replay_store_inmemoryreplaystore_sweep",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_types",
+      "target": "ref_zod",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/types.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_types",
+      "target": "src_server_types_relaytokenpayloadschema",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/types.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_types",
+      "target": "src_server_types_relaytokenpayload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/types.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_types",
+      "target": "src_server_types_replaystore",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/types.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_types_replaystore",
+      "target": "src_server_types_replaystore_hasseen",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/types.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_types_replaystore",
+      "target": "src_server_types_replaystore_markseen",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/types.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "ref_node_crypto",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_jwks",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_jwks_importpublickeyfromjwks",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_jwks_importpublickeyfrompem",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_replay_store",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_replay_store_inmemoryreplaystore",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_types",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_types_relaytokenpayloadschema",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_types_relaytokenpayload",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_types_replaystore",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_verify_verifyrelaytokenoptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_verify_relaytokenverificationerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_verify_defaultreplaystore",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_verify_base64urldecode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_verify_base64urldecodejson",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_verify_verifyrelaytoken",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify",
+      "target": "src_server_verify_requirekid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L119",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify_base64urldecodejson",
+      "target": "src_server_verify_base64urldecode",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify_verifyrelaytoken",
+      "target": "src_server_verify_base64urldecodejson",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify_verifyrelaytoken",
+      "target": "src_server_verify_requirekid",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify_verifyrelaytoken",
+      "target": "src_server_verify_base64urldecode",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L83",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig",
+      "target": "tsconfig_compileroptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_target",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_lib",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions_lib",
+      "target": "ref_es2020",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions_lib",
+      "target": "ref_dom",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_types",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions_types",
+      "target": "ref_node",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_jsx",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_module",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_moduleresolution",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_declaration",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_strict",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_esmoduleinterop",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_skiplibcheck",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_rootdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_outdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_ignoredeprecations",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig",
+      "target": "tsconfig_include",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tsconfig_include",
+      "target": "ref_src",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_client",
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_index",
+      "target": "src_data_client_types",
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_index",
+      "target": "src_statusmessagepage",
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_verify",
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_replay_store",
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_types",
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_index",
+      "target": "src_server_hub_internal_request",
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_pagedenvelope",
+      "target": "src_data_client_types_paging",
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_constructor",
+      "target": "src_data_client_types_centraldataclientoptions",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_liststudents",
+      "target": "src_data_client_types_liststudentsparams",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_liststudents",
+      "target": "src_data_client_types_studentprofile",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_liststudents",
+      "target": "src_data_client_types_paging",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallstudents",
+      "target": "src_data_client_types_liststudentsparams",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L91",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallstudents",
+      "target": "src_data_client_types_studentprofile",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L91",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_lookupstudent",
+      "target": "src_data_client_types_studentprofile",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L95",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_getstudentacademichistory",
+      "target": "src_data_client_types_studentacademichistoryentry",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listemployees",
+      "target": "src_data_client_types_listemployeesparams",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L105",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listemployees",
+      "target": "src_data_client_types_employeeprofile",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L105",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listemployees",
+      "target": "src_data_client_types_paging",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L105",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallemployees",
+      "target": "src_data_client_types_listemployeesparams",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L110",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallemployees",
+      "target": "src_data_client_types_employeeprofile",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L110",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_lookupemployee",
+      "target": "src_data_client_types_employeeprofile",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallclasses",
+      "target": "src_data_client_types_classprofile",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L119",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallclassteacherassignments",
+      "target": "src_data_client_types_classteacherassignment",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L123",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_client_client_centraldataclient_listallstudentsupportassignments",
+      "target": "src_data_client_types_studentsupportassignment",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data-client/client.ts",
+      "source_location": "L127",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_replay_store_inmemoryreplaystore",
+      "target": "src_server_types_replaystore",
+      "relation": "implements",
+      "context": "type",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/replay-store.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify_verifyrelaytokenoptions",
+      "target": "src_server_types_replaystore",
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/server/verify.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify_verifyrelaytoken",
+      "target": "src_server_jwks_importpublickeyfromjwks",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/server/verify.ts",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_server_verify_verifyrelaytoken",
+      "target": "src_server_jwks_importpublickeyfrompem",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/server/verify.ts",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "readme_mws_central_auth",
+      "target": "readme_mws_central_auth_server",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth",
+      "target": "readme_mws_central_auth_ui",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth_server",
+      "target": "readme_verifyrelaytoken",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth_server",
+      "target": "readme_relaytokenverificationerror",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth_ui",
+      "target": "readme_statusmessagepage",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_statusmessagepage",
+      "target": "readme_theme_prop",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_jwks_lookup",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_publickeypem_fixed_key",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_publickeypem_fixed_key",
+      "target": "readme_hub_sso_public_key_env",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_hub_sso_public_key_env",
+      "target": "readme_mws_mtss_system",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_hub_sso_public_key_env",
+      "target": "readme_mws_daily_checkin",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_relaytokenverificationerror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_inmemoryreplaystore",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_inmemoryreplaystore",
+      "target": "readme_replaystore_interface",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_identity_object",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_identity_object",
+      "target": "readme_person_id_sub_claim",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_identity_object",
+      "target": "readme_email_display_attribute",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_person_id_sub_claim",
+      "target": "readme_email_display_attribute",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_email_display_attribute",
+      "target": "readme_employeevalidation_update",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_person_id_sub_claim",
+      "target": "readme_employees_lookup_endpoint",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_person_id_sub_claim",
+      "target": "readme_students_lookup_endpoint",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_person_id_sub_claim",
+      "target": "readme_persons_lookup_endpoint",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sso_relay_token_flow",
+      "target": "readme_apps_launch_endpoint",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sso_relay_token_flow",
+      "target": "readme_sso_exchange_endpoint",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sso_exchange_endpoint",
+      "target": "readme_verifyrelaytoken",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_apps_launch_endpoint",
+      "target": "readme_hub",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sso_exchange_endpoint",
+      "target": "readme_hub",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_person_id_sub_claim",
+      "target": "readme_central",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_hub",
+      "target": "readme_central",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_jwks_lookup",
+      "target": "readme_hub",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth",
+      "target": "readme_tsup_build",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mws_central_auth",
+      "target": "readme_bun_local_dev",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_jti_single_use_enforcement",
+      "target": "readme_inmemoryreplaystore",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verifyrelaytoken",
+      "target": "readme_jti_single_use_enforcement",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "sso_relay_flow",
+      "label": "SSO relay token exchange flow (Hub launch, code exchange, verification)",
+      "nodes": [
+        "readme_apps_launch_endpoint",
+        "readme_sso_exchange_endpoint",
+        "readme_verifyrelaytoken",
+        "readme_relaytokenverificationerror"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md"
+    },
+    {
+      "id": "identity_keying_rationale",
+      "label": "Rationale for keying on sub (Person.id) instead of email",
+      "nodes": [
+        "readme_person_id_sub_claim",
+        "readme_email_display_attribute",
+        "readme_employeevalidation_update"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md"
+    },
+    {
+      "id": "key_verification_options",
+      "label": "Two token verification key strategies",
+      "nodes": [
+        "readme_verifyrelaytoken",
+        "readme_jwks_lookup",
+        "readme_publickeypem_fixed_key"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/mws-web-dev/Developments/MWS/mws-central-auth/README.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
