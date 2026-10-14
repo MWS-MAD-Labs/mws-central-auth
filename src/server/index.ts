@@ -9,3 +9,5 @@ export { verifyHubInternalSecret, parseHubRevocationPayload, HubInternalRequestV
 export type { HubInternalRevocationPayload } from "./hub-internal-request.js";
 export { createHubSso } from "./hub-sso.js";
 export type { CallbackAction, CookieDescriptor, HubSso, HubSsoOptions, RevokeResult, RevokeScope } from "./hub-sso.js";
+export { createHubSession } from "./hub-session.js";
+export type { HubSession, HubSessionClaims, HubSessionOptions, SessionStep } from "./hub-session.js";

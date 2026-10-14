@@ -44,3 +44,6 @@ export function watchSession(options: WatchSessionOptions): () => void {
     win.removeEventListener("focus", recheck);
   };
 }
+
+export { keepFresh } from "./keep-fresh.js";
+export type { KeepFreshOptions } from "./keep-fresh.js";

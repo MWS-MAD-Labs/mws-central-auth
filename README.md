@@ -155,6 +155,34 @@ Starter apps for Express and Next.js that already do all of this live in `templa
 An app's logout address is saved once in Central (`.../auth/logout`). The Hub derives the silent logout page and the
 `/auth/revoke-session` call from it.
 
+## Usage: shared session for apps on the Hub's parent domain (`createHubSession`, `keepFresh`)
+
+When the Hub and the app are on the same parent domain (for example `hub.mws.web.id` and `exima.mws.web.id`), the app needs no sign-in flow, no session of its own and no sign-out. The Hub keeps two cookies (see the Hub README): a short access token on the parent domain that every app can read, and a refresh token only the Hub can use. Signing out of the Hub signs the person out of every app.
+
+```ts
+import { createHubSession } from "mws-central-auth/server";
+
+const hub = createHubSession({ hubBaseUrl: process.env.HUB_BASE_URL! });
+
+// On every request:
+const claims = await hub.fromCookieHeader(request.headers.get("cookie")); // { sub, email, source, tags, sid } or null
+switch (hub.step({ claims, restored: url.searchParams.has("restored") })) {
+  case "ok":      /* serve it; get the app's own role and permissions from Central for claims.sub */ break;
+  case "restore": /* redirect to hub.restoreUrl(currentUrl): the Hub gives a new token back if the person still has a session */ break;
+  case "hub":     /* redirect to hub.homeUrl(): no session, the person picks an app there */ break;
+}
+```
+
+In the browser, keep the token fresh while the page is open:
+
+```ts
+import { keepFresh } from "mws-central-auth/client";
+
+keepFresh({ refreshUrl: hubRefreshUrl, onEnded: () => (location.href = hubHomeUrl) });
+```
+
+The app gets only identity from the token. What the person may do in the app comes from Central (the entitlement lookup), as before. `createHubSso` (the code and relay token flow above) stays for apps that are not on the parent domain.
+
 ## Usage: Central data client (`mws-central-auth/data-client`)
 
 ```ts
