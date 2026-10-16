@@ -99,11 +99,11 @@ own session/user records on, always.** `email` is carried too, but only as
 a display/contact attribute: Central allows editing an employee's email
 (`EmployeeValidation.UPDATE`), so a lookup or session keyed by email can go
 stale the moment someone's email changes there, silently, mid-session. `sub`
-never has that problem. `source` is `"employee" | "student"`, `tags` are the
+never has that problem. `source` is `"employee" | "intern" | "student"`, `tags` are the
 Central-backed access keys Hub's app catalog admitted them with. The token
 itself does not carry a full profile (name, unit, job position, ...) - look
-that up from Central's own `/employees/lookup` or `/students/lookup` (both
-accept an `id` query param matching `sub`'s `Person.id` via their
+that up from Central's own `/employees/lookup`, `/interns/lookup` or `/students/lookup` (each
+accepts an `id` query param matching `sub`'s `Person.id` via their
 `person_id` response field) or the combined `/persons/lookup?email=` at
 first sign-in, when you only have an email yet.
 

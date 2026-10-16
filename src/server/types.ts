@@ -14,7 +14,7 @@ export const relayTokenPayloadSchema = z.object({
   // Carried for display/contact purposes only (e.g. showing "signed in as
   // ...", or a support ticket). Never use this as a key.
   email: z.email(),
-  source: z.enum(["employee", "student"]),
+  source: z.enum(["employee", "intern", "student"]),
   tags: z.array(z.string()),
   entitlement: z.object({
     id: z.string().min(1),

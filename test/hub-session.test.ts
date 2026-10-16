@@ -35,6 +35,12 @@ describe("createHubSession", () => {
     expect(claims).toMatchObject({ sub: "person-1", email: "person@example.com", source: "employee", sid: "family-1" });
   });
 
+  it("accepts the token of an intern and refuses a source it does not know", async () => {
+    const hub = session();
+    expect(await hub.verify(accessToken({ source: "intern" }))).toMatchObject({ source: "intern" });
+    expect(await hub.verify(accessToken({ source: "alumni" }))).toBeNull();
+  });
+
   it("refuses an expired token, another audience, another issuer and a forged signature", async () => {
     const hub = session();
     const now = Math.floor(Date.now() / 1000);

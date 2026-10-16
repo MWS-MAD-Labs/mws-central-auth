@@ -13,7 +13,7 @@ const claimsSchema = z.object({
   aud: z.string(),
   sub: z.string().min(1),
   email: z.string(),
-  source: z.enum(["employee", "student"]),
+  source: z.enum(["employee", "intern", "student"]),
   tags: z.array(z.string()),
   sid: z.string().min(1),
   jti: z.string(),
