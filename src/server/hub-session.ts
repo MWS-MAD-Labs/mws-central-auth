@@ -106,6 +106,7 @@ export function createHubSession(options: HubSessionOptions) {
   let learned: string | undefined;
   let nextAskAt = 0;
   let asking: Promise<void> | null = null;
+  let askedOnce = false;
   const currentName = () => pinned ?? learned ?? "hub_at";
 
   async function ask(): Promise<void> {
@@ -130,16 +131,18 @@ export function createHubSession(options: HubSessionOptions) {
       // The name known so far stays.
     }
     nextAskAt = Date.now() + (found ? DISCOVERY_TTL_MS : DISCOVERY_RETRY_MS);
+    askedOnce = true;
   }
 
-  // Resolves once the cookie name is as known as it is going to get. Call it at start-up so the first request
+  // Resolves with the cookie name. Only the very first question is waited for; after that the Hub is asked in the
+  // background, so a Hub that is slow or down never holds a request. Call it at start-up so the first request
   // already reads the right cookie; `fromCookieHeader` calls it too.
   async function ready(): Promise<string> {
     if (askHub && Date.now() >= nextAskAt) {
       asking ??= ask().finally(() => {
         asking = null;
       });
-      await asking;
+      if (!askedOnce) await asking;
     }
     return currentName();
   }

@@ -1,5 +1,5 @@
 import { generateKeyPairSync, sign } from "node:crypto";
-import { afterEach, describe, expect, it } from "bun:test";
+import { afterEach, describe, expect, it, setSystemTime } from "bun:test";
 import { createHubSession } from "../src/server/index.js";
 
 const { privateKey, publicKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
@@ -238,5 +238,31 @@ describe("cookie name discovery", () => {
     const secure = hubAnswering({ access_cookie_name: "hub_at_stg" });
     const session = createHubSession({ hubBaseUrl: "https://hub.mws.test", fetchImpl: secure.fetchImpl });
     expect(await session.ready()).toBe("hub_at_stg");
+  });
+
+  it("refreshes in the background, so a Hub that hangs later does not hold a request", async () => {
+    delete process.env.HUB_ACCESS_COOKIE_NAME;
+    let hang = false;
+    let calls = 0;
+    const session = createHubSession({
+      hubBaseUrl: "http://hub-slow.test:5175",
+      fetchImpl: (async () => {
+        calls += 1;
+        if (hang) return new Promise<Response>(() => {});
+        return new Response(JSON.stringify({ access_cookie_name: "hub_at_stg" }));
+      }) as unknown as typeof fetch,
+    });
+    try {
+      expect(await session.ready()).toBe("hub_at_stg");
+      hang = true;
+      setSystemTime(new Date(Date.now() + 11 * 60 * 1000));
+      // Past the 10 minutes: asks again, but answers at once with the name it has.
+      expect(await session.ready()).toBe("hub_at_stg");
+      expect(calls).toBe(2);
+      await session.ready();
+      expect(calls).toBe(2);
+    } finally {
+      setSystemTime();
+    }
   });
 });
