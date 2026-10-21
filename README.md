@@ -173,6 +173,8 @@ switch (hub.step({ claims, restored: url.searchParams.has("restored") })) {
 }
 ```
 
+Create the session once and reuse it: it remembers the cookie name. The name is, in order: `cookieName` in the options, `HUB_ACCESS_COOKIE_NAME` from the environment, what the Hub reports at `/.well-known/hub-config` (asked on the first request and again every 10 minutes), then `hub_at`. Only the cookie name comes from the Hub; the audience and issuer stay what the app sets (`mws-apps` and `mws-hub` by default). `readCookie` is synchronous and uses the name known so far, so an app that depends on the Hub's answer can `await hub.ready()` at start-up. Over http the Hub is only asked outside production. `discovery: false` turns it off.
+
 In the browser, keep the token fresh while the page is open:
 
 ```ts

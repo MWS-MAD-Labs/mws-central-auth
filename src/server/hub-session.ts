@@ -29,12 +29,28 @@ export interface HubSessionOptions {
   // `aud` of the access token. Default `mws-apps`.
   audience?: string;
   issuer?: string;
-  // Name of the access token cookie. Default `hub_at`.
+  // Name of the access token cookie. Without it: HUB_ACCESS_COOKIE_NAME from the environment, then what the Hub
+  // reports at /.well-known/hub-config, then `hub_at`.
   cookieName?: string;
+  // Set to false to never ask the Hub for its cookie name (tests, no network).
+  discovery?: boolean;
   jwksUrl?: string;
   clockToleranceSeconds?: number;
   fetchImpl?: typeof fetch;
 }
+
+export type CookieNameSource = "option" | "env" | "hub" | "default";
+
+const COOKIE_NAME = /^[A-Za-z0-9_-]{3,40}$/;
+// Cookies the Hub keeps for itself. The access token is never one of them.
+const RESERVED_COOKIE_NAMES = ["hub_rt", "hub_session"];
+const validCookieName = (value: unknown): value is string =>
+  typeof value === "string" && COOKIE_NAME.test(value) && !RESERVED_COOKIE_NAMES.includes(value);
+
+const DISCOVERY_TTL_MS = 10 * 60 * 1000;
+// A Hub that does not answer (or has no endpoint yet) is asked again after this long, not on every request.
+const DISCOVERY_RETRY_MS = 60 * 1000;
+const DISCOVERY_TIMEOUT_MS = 3000;
 
 export type SessionStep = "ok" | "restore" | "hub";
 
@@ -45,7 +61,11 @@ function base64UrlDecode(segment: string): Uint8Array {
 
 export function createHubSession(options: HubSessionOptions) {
   const base = options.hubBaseUrl.replace(/\/+$/, "");
-  const cookieName = options.cookieName ?? "hub_at";
+  const envName = process.env.HUB_ACCESS_COOKIE_NAME?.trim();
+  // A name given by the app wins and the Hub is never asked.
+  const pinned = options.cookieName ?? (validCookieName(envName) ? envName : undefined);
+  const askHub = !pinned && options.discovery !== false;
+  // Only the cookie name comes from the Hub. Audience and issuer decide who is trusted, so the app keeps them.
   const audience = options.audience ?? "mws-apps";
   const issuer = options.issuer ?? "mws-hub";
   const jwksUrl = options.jwksUrl ?? `${base}/.well-known/jwks.json`;
@@ -83,22 +103,74 @@ export function createHubSession(options: HubSessionOptions) {
     }
   }
 
-  // The value of the access token cookie in a `Cookie` request header.
+  let learned: string | undefined;
+  let nextAskAt = 0;
+  let asking: Promise<void> | null = null;
+  const currentName = () => pinned ?? learned ?? "hub_at";
+
+  async function ask(): Promise<void> {
+    let found = false;
+    try {
+      // Over http only while developing; in production the name must come over https.
+      const secureEnough = new URL(base).protocol === "https:" || process.env.NODE_ENV !== "production";
+      if (secureEnough) {
+        const response = await (options.fetchImpl ?? fetch)(`${base}/.well-known/hub-config`, {
+          headers: { accept: "application/json" },
+          signal: AbortSignal.timeout(DISCOVERY_TIMEOUT_MS),
+        });
+        if (response.ok) {
+          const body = (await response.json()) as { access_cookie_name?: unknown };
+          if (validCookieName(body.access_cookie_name)) {
+            learned = body.access_cookie_name;
+            found = true;
+          }
+        }
+      }
+    } catch {
+      // The name known so far stays.
+    }
+    nextAskAt = Date.now() + (found ? DISCOVERY_TTL_MS : DISCOVERY_RETRY_MS);
+  }
+
+  // Resolves once the cookie name is as known as it is going to get. Call it at start-up so the first request
+  // already reads the right cookie; `fromCookieHeader` calls it too.
+  async function ready(): Promise<string> {
+    if (askHub && Date.now() >= nextAskAt) {
+      asking ??= ask().finally(() => {
+        asking = null;
+      });
+      await asking;
+    }
+    return currentName();
+  }
+
+  // The value of the access token cookie in a `Cookie` request header. Synchronous, so it uses the name known so
+  // far: until `ready()` has finished that is the app's own setting, or `hub_at`.
   function readCookie(header: string | null | undefined): string | undefined {
     if (!header) return undefined;
     for (const part of header.split(";")) {
       const index = part.indexOf("=");
-      if (index > 0 && part.slice(0, index).trim() === cookieName) return decodeURIComponent(part.slice(index + 1).trim());
+      if (index > 0 && part.slice(0, index).trim() === currentName()) return decodeURIComponent(part.slice(index + 1).trim());
     }
     return undefined;
   }
 
   return {
-    cookieName,
+    get cookieName() {
+      return currentName();
+    },
+    // Where the name came from, for logs and startup checks.
+    nameSource(): CookieNameSource {
+      return options.cookieName ? "option" : pinned ? "env" : learned ? "hub" : "default";
+    },
+    ready,
     verify,
     readCookie,
     // Who is signed in on this request, or null.
-    fromCookieHeader: (header: string | null | undefined) => verify(readCookie(header)),
+    fromCookieHeader: async (header: string | null | undefined) => {
+      await ready();
+      return verify(readCookie(header));
+    },
     // The Hub front page, where people pick an app.
     homeUrl: () => `${base}/`,
     // Where the app's pages ask for a new access token, with `keepFresh` from the client entry.

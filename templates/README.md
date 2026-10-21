@@ -14,7 +14,7 @@ Pick by where the app lives:
 
 The Hub keeps a short access token in a cookie on the parent domain (see the Hub README). The app:
 
-1. reads the cookie and checks it against the Hub's keys (`createHubSession`),
+1. reads the cookie and checks it against the Hub's keys (`createHubSession`; the cookie name comes from `HUB_ACCESS_COOKIE_NAME` if set, otherwise from the Hub itself),
 2. gets the person's role and permissions in this app from Central (the entitlement lookup, kept for a minute),
 3. sends a request without a session to the Hub, which gives one back if the person still has it (`/auth/restore`) or shows its front page,
 4. keeps the token fresh while a page is open (`keepFresh`).

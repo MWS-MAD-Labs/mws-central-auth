@@ -1,5 +1,5 @@
 import { generateKeyPairSync, sign } from "node:crypto";
-import { describe, expect, it } from "bun:test";
+import { afterEach, describe, expect, it } from "bun:test";
 import { createHubSession } from "../src/server/index.js";
 
 const { privateKey, publicKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
@@ -85,5 +85,158 @@ describe("createHubSession", () => {
     expect(hub.step({ claims, restored: false })).toBe("ok");
     expect(hub.step({ claims: null, restored: false })).toBe("restore");
     expect(hub.step({ claims: null, restored: true })).toBe("hub");
+  });
+});
+
+describe("cookie name discovery", () => {
+  const savedEnv = process.env.HUB_ACCESS_COOKIE_NAME;
+  const savedNodeEnv = process.env.NODE_ENV;
+  afterEach(() => {
+    if (savedEnv === undefined) delete process.env.HUB_ACCESS_COOKIE_NAME;
+    else process.env.HUB_ACCESS_COOKIE_NAME = savedEnv;
+    process.env.NODE_ENV = savedNodeEnv;
+  });
+
+  // A Hub that answers /.well-known/hub-config with `config` (or fails when it is null) and counts the calls.
+  const hubAnswering = (config: unknown) => {
+    const calls: string[] = [];
+    const fetchImpl = (async (url: string) => {
+      calls.push(String(url));
+      if (config === null) throw new Error("down");
+      return new Response(JSON.stringify(config), { status: 200 });
+    }) as unknown as typeof fetch;
+    return { calls, fetchImpl };
+  };
+  const make = (hub: ReturnType<typeof hubAnswering>, extra: Record<string, unknown> = {}) =>
+    createHubSession({ hubBaseUrl: `http://hub-${counter++}.test:5175`, fetchImpl: hub.fetchImpl, ...extra });
+
+  it("uses the cookie name the Hub reports", async () => {
+    delete process.env.HUB_ACCESS_COOKIE_NAME;
+    const hub = hubAnswering({ access_cookie_name: "hub_at_stg" });
+    const session = make(hub);
+    expect(session.cookieName).toBe("hub_at");
+    expect(await session.ready()).toBe("hub_at_stg");
+    expect(session.cookieName).toBe("hub_at_stg");
+    expect(session.nameSource()).toBe("hub");
+    expect(session.readCookie("hub_at_stg=abc")).toBe("abc");
+    expect(hub.calls[0]).toEndWith("/.well-known/hub-config");
+  });
+
+  it("reads the right cookie on the first request", async () => {
+    delete process.env.HUB_ACCESS_COOKIE_NAME;
+    const claims = await make(hubAnswering({ access_cookie_name: "hub_at_stg" })).fromCookieHeader("hub_at_stg=x");
+    expect(claims).toBeNull();
+    const hub = createHubSession({
+      hubBaseUrl: "http://hub-first.test:5175",
+      fetchImpl: (async (url: string) =>
+        String(url).endsWith("hub-config")
+          ? new Response(JSON.stringify({ access_cookie_name: "hub_at_stg" }))
+          : new Response(JSON.stringify({ keys: [jwk] }))) as unknown as typeof fetch,
+    });
+    expect((await hub.fromCookieHeader(`hub_at_stg=${accessToken()}`))?.sub).toBe("person-1");
+  });
+
+  it("lets the option and the environment win without asking the Hub", async () => {
+    const hub = hubAnswering({ access_cookie_name: "hub_at_stg" });
+    const byOption = make(hub, { cookieName: "my_cookie" });
+    expect(await byOption.ready()).toBe("my_cookie");
+    expect(byOption.nameSource()).toBe("option");
+
+    process.env.HUB_ACCESS_COOKIE_NAME = "env_cookie";
+    const byEnv = make(hub);
+    expect(await byEnv.ready()).toBe("env_cookie");
+    expect(byEnv.nameSource()).toBe("env");
+    expect(hub.calls).toHaveLength(0);
+  });
+
+  it("ignores an env value that is not a usable name and asks the Hub", async () => {
+    process.env.HUB_ACCESS_COOKIE_NAME = "hub_rt";
+    const session = make(hubAnswering({ access_cookie_name: "hub_at_stg" }));
+    expect(await session.ready()).toBe("hub_at_stg");
+  });
+
+  it("never takes audience or issuer from the Hub", async () => {
+    delete process.env.HUB_ACCESS_COOKIE_NAME;
+    const session = createHubSession({
+      hubBaseUrl: "http://hub-policy.test:5175",
+      fetchImpl: (async (url: string) =>
+        String(url).endsWith("hub-config")
+          ? new Response(JSON.stringify({ access_cookie_name: "hub_at", audience: "evil", issuer: "evil" }))
+          : new Response(JSON.stringify({ keys: [jwk] }))) as unknown as typeof fetch,
+    });
+    await session.ready();
+    expect(await session.verify(accessToken())).not.toBeNull();
+    expect(await session.verify(accessToken({ aud: "evil", iss: "evil" }))).toBeNull();
+  });
+
+  it("refuses names that are not safe or that belong to the Hub", async () => {
+    delete process.env.HUB_ACCESS_COOKIE_NAME;
+    for (const name of ["hub_rt", "hub_session", "a b", "x", "a;b=c", "x".repeat(41), 42, null]) {
+      const session = make(hubAnswering({ access_cookie_name: name }));
+      expect(await session.ready()).toBe("hub_at");
+    }
+  });
+
+  it("keeps hub_at when the Hub is down, and the last name when it goes down later", async () => {
+    delete process.env.HUB_ACCESS_COOKIE_NAME;
+    const down = make(hubAnswering(null));
+    expect(await down.ready()).toBe("hub_at");
+    expect(down.nameSource()).toBe("default");
+
+    let up = true;
+    const session = createHubSession({
+      hubBaseUrl: "http://hub-flaky.test:5175",
+      fetchImpl: (async () => {
+        if (!up) throw new Error("down");
+        return new Response(JSON.stringify({ access_cookie_name: "hub_at_stg" }));
+      }) as unknown as typeof fetch,
+    });
+    expect(await session.ready()).toBe("hub_at_stg");
+    up = false;
+    expect(session.cookieName).toBe("hub_at_stg");
+  });
+
+  it("asks once for requests that arrive together and then remembers", async () => {
+    delete process.env.HUB_ACCESS_COOKIE_NAME;
+    const hub = hubAnswering({ access_cookie_name: "hub_at_stg" });
+    const session = make(hub);
+    await Promise.all([session.ready(), session.ready(), session.fromCookieHeader("a=1")]);
+    await session.ready();
+    expect(hub.calls).toHaveLength(1);
+  });
+
+  it("does not ask again at once when the Hub has no endpoint", async () => {
+    delete process.env.HUB_ACCESS_COOKIE_NAME;
+    const calls: string[] = [];
+    const session = createHubSession({
+      hubBaseUrl: "http://hub-old.test:5175",
+      fetchImpl: (async (url: string) => {
+        calls.push(String(url));
+        return new Response("not found", { status: 404 });
+      }) as unknown as typeof fetch,
+    });
+    await session.ready();
+    await session.ready();
+    expect(calls).toHaveLength(1);
+    expect(session.cookieName).toBe("hub_at");
+  });
+
+  it("can be switched off", async () => {
+    delete process.env.HUB_ACCESS_COOKIE_NAME;
+    const hub = hubAnswering({ access_cookie_name: "hub_at_stg" });
+    expect(await make(hub, { discovery: false }).ready()).toBe("hub_at");
+    expect(hub.calls).toHaveLength(0);
+  });
+
+  it("only asks over https in production", async () => {
+    delete process.env.HUB_ACCESS_COOKIE_NAME;
+    process.env.NODE_ENV = "production";
+    const insecure = hubAnswering({ access_cookie_name: "hub_at_stg" });
+    expect(await make(insecure).ready()).toBe("hub_at");
+    expect(insecure.calls).toHaveLength(0);
+
+    const secure = hubAnswering({ access_cookie_name: "hub_at_stg" });
+    const session = createHubSession({ hubBaseUrl: "https://hub.mws.test", fetchImpl: secure.fetchImpl });
+    expect(await session.ready()).toBe("hub_at_stg");
   });
 });
