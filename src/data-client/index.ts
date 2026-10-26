@@ -3,6 +3,7 @@ export { CentralApiError } from "./types.js";
 export { comparePermissions, permissionCheckFailed, type PermissionCheck } from "./permissions.js";
 export type {
   ApplicationEntitlement,
+  ApplicationEntitlementListItem,
   CentralDataClientOptions,
   ClassProfile,
   ClassTeacherAssignment,

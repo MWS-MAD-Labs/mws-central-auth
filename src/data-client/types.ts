@@ -82,6 +82,11 @@ export interface StudentRosterRow {
   mother_email: string | null;
 }
 
+// One row of the list of everyone who may use an application: the entitlement and who the person is.
+export interface ApplicationEntitlementListItem extends ApplicationEntitlement {
+  person: { full_name: string; email: string; unit: string | null };
+}
+
 // Mirrors Central's StudentAcademicHistoryEntry - one row per enrollment,
 // requires the separate students.academic_history.read scope.
 export interface StudentAcademicHistoryEntry {

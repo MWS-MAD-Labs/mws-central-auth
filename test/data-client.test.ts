@@ -76,3 +76,28 @@ describe("CentralDataClient.listStudentRoster", () => {
     expect(requestUrl).toBe("https://central.example/api/internal/students/roster-export?status=ACTIVE");
   });
 });
+
+describe("CentralDataClient.listAllApplicationEntitlements", () => {
+  it("reads every page of the active entitlements, 200 at a time", async () => {
+    const urls: string[] = [];
+    const client = new CentralDataClient({
+      baseUrl: "https://central.example",
+      token: "prefix.secret",
+      fetchImpl: async (input) => {
+        const url = String(input);
+        urls.push(url);
+        const page = Number(new URL(url).searchParams.get("page"));
+        return Response.json({
+          success: true,
+          data: [{ ...entitlement, id: `e${page}`, person: { full_name: "A", email: "a@example.test", unit: null } }],
+          paging: { current_page: page, total_page: 2, total_item: 2, size: 200 },
+        });
+      },
+    });
+
+    const rows = await client.listAllApplicationEntitlements({ application_id: "learnspace" });
+    expect(rows.map((row) => row.id)).toEqual(["e1", "e2"]);
+    expect(urls[0]).toContain("size=200");
+    expect(urls[0]).toContain("application_id=learnspace");
+  });
+});

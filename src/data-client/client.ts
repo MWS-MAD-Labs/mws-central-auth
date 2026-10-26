@@ -12,6 +12,7 @@ import {
   type PermissionSyncResult,
   type RegisteredPermission,
   type StudentAcademicHistoryEntry,
+  type ApplicationEntitlementListItem,
   type StudentProfile,
   type StudentRosterRow,
   type StudentSupportAssignment,
@@ -124,6 +125,11 @@ export class CentralDataClient {
   async listStudentRoster(params: { status?: string } = {}): Promise<StudentRosterRow[]> {
     const result = await this.request<SuccessEnvelope<StudentRosterRow[]>>("/students/roster-export", { ...params });
     return result.data;
+  }
+
+  // Everyone Central lets use the application, active ones only. Without an application id it is the application of the token.
+  async listAllApplicationEntitlements(params: { application_id?: string; size?: number } = {}): Promise<ApplicationEntitlementListItem[]> {
+    return this.listAllPages<ApplicationEntitlementListItem>("/application-entitlements", { size: 200, ...params });
   }
 
   async lookupStudent(params: { id?: string; nis?: string; email?: string }): Promise<StudentProfile> {
