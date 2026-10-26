@@ -187,6 +187,8 @@ Which way an application signs in is set per application in Central (Sign-In Way
 
 ## Usage: Central data client (`mws-central-auth/data-client`)
 
+This client is frozen. It keeps what is shared and rarely changes: the entitlement and employee lookups, the permission manifest (`publishPermissions`, `comparePermissions`), `CentralApiError` and their types. New Central endpoints are not added here. An app that needs more calls Central itself (see `CentralHttpClient` in MWS-Learnspace for a small example), so a new endpoint never waits for a release of this package.
+
 ```ts
 import { CentralDataClient } from "mws-central-auth/data-client";
 
