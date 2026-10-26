@@ -40,12 +40,14 @@ interface ErrorEnvelope {
 export class CentralDataClient {
   private readonly baseUrl: string;
   private readonly token: string;
+  private readonly organizationId: string | undefined;
   private readonly timeoutMs: number;
   private readonly fetchImpl: typeof fetch;
 
   constructor(options: CentralDataClientOptions) {
     this.baseUrl = options.baseUrl.replace(/\/$/, "");
     this.token = options.token;
+    this.organizationId = options.organizationId?.trim() || undefined;
     this.timeoutMs = options.timeoutMs ?? 10_000;
     this.fetchImpl = options.fetchImpl ?? fetch;
   }
@@ -79,6 +81,7 @@ export class CentralDataClient {
         method: options.method ?? "GET",
         headers: {
           authorization: `Bearer ${this.token}`,
+          ...(this.organizationId ? { "x-central-organization-id": this.organizationId } : {}),
           ...(options.body !== undefined ? { "content-type": "application/json" } : {}),
         },
         ...(options.body !== undefined ? { body: JSON.stringify(options.body) } : {}),

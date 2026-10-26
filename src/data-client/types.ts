@@ -4,6 +4,9 @@ export interface CentralDataClientOptions {
   baseUrl: string;
   // "<token_prefix>.<secret>" as issued by Central's Access > API Clients page.
   token: string;
+  // The Organization ID of the application (CENTRAL_ORGANIZATION_ID). Sent with every call so Central can check it is the
+  // one it made, which Settings shows. It never changes the answer to a call.
+  organizationId?: string;
   timeoutMs?: number;
   fetchImpl?: typeof fetch;
 }

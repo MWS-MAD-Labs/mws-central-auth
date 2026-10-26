@@ -101,3 +101,23 @@ describe("CentralDataClient.listAllApplicationEntitlements", () => {
     expect(urls[0]).toContain("application_id=learnspace");
   });
 });
+
+describe("CentralDataClient organization header", () => {
+  it("sends the Organization ID with every call when it is set, and nothing when it is not", async () => {
+    const headers: Array<string | null> = [];
+    const make = (organizationId?: string) =>
+      new CentralDataClient({
+        baseUrl: "https://central.example",
+        token: "prefix.secret",
+        organizationId,
+        fetchImpl: async (_input, init) => {
+          headers.push(new Headers(init?.headers).get("x-central-organization-id"));
+          return Response.json({ success: true, data: [], paging: { current_page: 1, total_page: 1, total_item: 0, size: 100 } });
+        },
+      });
+
+    await make(" org_x ").listAllClasses();
+    await make().listAllClasses();
+    expect(headers).toEqual(["org_x", null]);
+  });
+});
