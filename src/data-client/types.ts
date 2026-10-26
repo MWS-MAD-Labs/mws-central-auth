@@ -116,8 +116,12 @@ export interface ListEmployeesParams {
 export interface ClassProfile {
   class_id: string;
   class_name: string;
+  // Stable ids next to the names. Absent from a Central older than the ids.
+  grade_id?: string;
   grade_name: string;
+  additional_grade_ids?: string[];
   additional_grade_names: string[];
+  unit_id?: string | null;
   unit_name: string | null;
   academic_year_id: string;
   academic_year: string;
@@ -130,8 +134,12 @@ export interface ClassProfile {
 export interface ClassTeacherAssignment {
   class_id: string;
   class_name: string;
+  // Stable ids next to the names. Absent from a Central older than the ids.
+  grade_id?: string;
   grade_name: string;
+  additional_grade_ids?: string[];
   additional_grade_names: string[];
+  unit_id?: string | null;
   unit_name: string | null;
   academic_year_id: string;
   academic_year: string;
