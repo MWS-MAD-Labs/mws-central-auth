@@ -58,3 +58,21 @@ describe("CentralDataClient.lookupApplicationEntitlement", () => {
     await expect(request).rejects.toMatchObject({ status: 503, message: "temporarily unavailable" });
   });
 });
+
+describe("CentralDataClient.listStudentRoster", () => {
+  it("asks the roster export for one status and returns the rows", async () => {
+    let requestUrl = "";
+    const client = new CentralDataClient({
+      baseUrl: "https://central.example",
+      token: "prefix.secret",
+      fetchImpl: async (input) => {
+        requestUrl = String(input);
+        return Response.json({ success: true, data: [{ email: "a@example.test", birth_date: "2015-01-02T00:00:00.000Z" }] });
+      },
+    });
+
+    const rows = await client.listStudentRoster({ status: "ACTIVE" });
+    expect(rows).toHaveLength(1);
+    expect(requestUrl).toBe("https://central.example/api/internal/students/roster-export?status=ACTIVE");
+  });
+});

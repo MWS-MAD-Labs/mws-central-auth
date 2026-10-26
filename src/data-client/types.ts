@@ -50,8 +50,36 @@ export interface StudentProfile {
   email: string;
   gender: string;
   status: string;
+  // Ids next to the names. Absent from a Central older than the ids.
+  current_grade_id?: string;
   current_grade: string;
+  current_class_id?: string | null;
   current_class: string | null;
+}
+
+// The part of Central's roster-export row (server/src/model/student-api-model.ts) that an application needs to keep
+// its own copy of a student: birth date, address and the parents' contacts. The row has no ids, so it is matched to a
+// StudentProfile by email. Needs the separate students.roster_export.read scope; the row also carries health and
+// consent fields, which are left out of this type on purpose.
+export interface StudentRosterRow {
+  email: string;
+  nis: string | null;
+  nisn: string | null;
+  full_name: string;
+  nick_name: string;
+  gender: string;
+  status: string;
+  photo_url: string | null;
+  // An ISO date and time.
+  birth_date: string;
+  address: string | null;
+  sn: boolean;
+  father_name: string | null;
+  father_phone: string | null;
+  father_email: string | null;
+  mother_name: string | null;
+  mother_phone: string | null;
+  mother_email: string | null;
 }
 
 // Mirrors Central's StudentAcademicHistoryEntry - one row per enrollment,

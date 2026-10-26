@@ -15,5 +15,6 @@ export type {
   RegisteredPermission,
   StudentAcademicHistoryEntry,
   StudentProfile,
+  StudentRosterRow,
   StudentSupportAssignment,
 } from "./types.js";

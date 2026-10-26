@@ -13,6 +13,7 @@ import {
   type RegisteredPermission,
   type StudentAcademicHistoryEntry,
   type StudentProfile,
+  type StudentRosterRow,
   type StudentSupportAssignment,
 } from "./types.js";
 
@@ -117,6 +118,12 @@ export class CentralDataClient {
 
   async listAllStudents(params: Omit<ListStudentsParams, "page"> = {}): Promise<StudentProfile[]> {
     return this.listAllPages<StudentProfile>("/students", { ...params });
+  }
+
+  // Every student with the sensitive roster fields. Not paged, so ask for one status at a time when the school is big.
+  async listStudentRoster(params: { status?: string } = {}): Promise<StudentRosterRow[]> {
+    const result = await this.request<SuccessEnvelope<StudentRosterRow[]>>("/students/roster-export", { ...params });
+    return result.data;
   }
 
   async lookupStudent(params: { id?: string; nis?: string; email?: string }): Promise<StudentProfile> {
