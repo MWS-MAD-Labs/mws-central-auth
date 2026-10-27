@@ -28,7 +28,9 @@ export interface DoctorOptions {
   fetchImpl?: typeof fetch;
 }
 
-const REQUIRED = ["HUB_BASE_URL", "CENTRAL_API_BASE_URL", "CENTRAL_API_TOKEN", "CENTRAL_ORGANIZATION_ID", "APP_BASE_URL"];
+const DEFAULT_APP_URL = "APP_BASE_URL";
+const required = (config: AccessConfig) =>
+  config.doctor?.env ?? ["HUB_BASE_URL", "CENTRAL_API_BASE_URL", "CENTRAL_API_TOKEN", "CENTRAL_ORGANIZATION_ID", config.doctor?.appUrlEnv ?? DEFAULT_APP_URL];
 
 // KEY=value lines of a .env. Quotes are taken off, comments and blank lines are skipped.
 export function parseEnvFile(text: string): Record<string, string> {
@@ -61,13 +63,14 @@ export async function runDoctorChecks(options: DoctorOptions): Promise<DoctorFin
   const findings: DoctorFinding[] = [];
   const add = (finding: DoctorFinding) => findings.push(finding);
 
-  const missing = REQUIRED.filter((name) => !env[name]?.trim());
+  const appUrlEnv = config.doctor?.appUrlEnv ?? DEFAULT_APP_URL;
+  const missing = required(config).filter((name) => !env[name]?.trim());
   add(
     missing.length
-      ? { name: "Environment", status: "fail", detail: `Missing: ${missing.join(", ")}.`, fix: "Copy the block Central shows when the application is added or its token is rotated, and set APP_BASE_URL to the address people open the app at." }
+      ? { name: "Environment", status: "fail", detail: `Missing: ${missing.join(", ")}.`, fix: `Copy the block Central shows when the application is added or its token is rotated, and set ${appUrlEnv} to the address people open the app at.` }
       : { name: "Environment", status: "ok", detail: "All the lines are set." },
   );
-  const badUrls = ["HUB_BASE_URL", "CENTRAL_API_BASE_URL", "APP_BASE_URL"].filter((name) => env[name]?.trim() && !isUrl(env[name]!.trim()));
+  const badUrls = ["HUB_BASE_URL", "CENTRAL_API_BASE_URL", appUrlEnv].filter((name) => env[name]?.trim() && !isUrl(env[name]!.trim()));
   if (badUrls.length) add({ name: "Addresses", status: "fail", detail: `${badUrls.join(", ")} must start with http:// or https://.`, fix: "Write the whole address, with the scheme." });
 
   // The Hub: its keys must be readable, or nobody's session can be checked.

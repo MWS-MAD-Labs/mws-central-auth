@@ -33,6 +33,8 @@ export interface AccessConfig {
   roleNameAllow?: Array<{ file: string; reason: string }>;
   legacyKeys?: string[];
   probe?: { module: string; open: string[] };
+  // For `mws-access doctor`: the name this app gives its own web address (default APP_BASE_URL), and the lines it needs.
+  doctor?: { appUrlEnv?: string; env?: string[] };
 }
 
 export interface Probe {

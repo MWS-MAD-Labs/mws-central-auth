@@ -15,7 +15,7 @@ import type { PermissionManifestEntry, PermissionSyncResult, RegisteredPermissio
 
 const usage = `Usage:
   permissions:sync  [--check] [--confirm-removals] [--allow-removals] [--soft] [--retries N] [--wait SECONDS]
-  permissions:check [--allow-removals] [--soft] [--retries N] [--wait SECONDS]
+  permissions:check [--allow-removals] [--before-deploy] [--soft] [--retries N] [--wait SECONDS]
 
 Needs CENTRAL_API_BASE_URL and CENTRAL_API_TOKEN. CENTRAL_ORGANIZATION_ID is sent when set. CENTRAL_APPLICATION_ID replaces the application id.`;
 
@@ -42,18 +42,21 @@ interface Parsed {
   confirmRemovals: boolean;
   allowRemovals: boolean;
   soft: boolean;
+  // For CI before a deploy: only roles that use a permission the code no longer knows fail it.
+  beforeDeploy: boolean;
   retries: number;
   waitMs: number;
 }
 
 export function parsePermissionsArguments(argv: string[], command: "sync" | "check"): Parsed {
-  const parsed: Parsed = { mode: command, confirmRemovals: false, allowRemovals: false, soft: false, retries: 0, waitMs: 5000 };
+  const parsed: Parsed = { mode: command, confirmRemovals: false, allowRemovals: false, beforeDeploy: false, soft: false, retries: 0, waitMs: 5000 };
   for (let index = 0; index < argv.length; index += 1) {
     const flag = argv[index];
     if (flag === "--check") parsed.mode = "check";
     else if (flag === "--confirm-removals") parsed.confirmRemovals = true;
     else if (flag === "--allow-removals") parsed.allowRemovals = true;
     else if (flag === "--soft") parsed.soft = true;
+    else if (flag === "--before-deploy") parsed.beforeDeploy = true;
     else if (flag === "--retries" || flag === "--wait") {
       const value = argv[index + 1];
       if (value === undefined || !/^\d+$/.test(value)) throw new Error(`${flag} needs a whole number.\n${usage}`);
@@ -94,6 +97,11 @@ export async function runPermissionsCli(options: PermissionsCliOptions): Promise
     const rawArgv = options.argv ?? process.argv.slice(2);
     const command = options.command ?? (rawArgv[0] === "check" ? "check" : "sync");
     args = parsePermissionsArguments(options.argv ? rawArgv : rawArgv.slice(rawArgv[0] === "sync" || rawArgv[0] === "check" ? 1 : 0), command);
+  } catch (error) {
+    output.error(error instanceof Error ? error.message : String(error));
+    return 1;
+  }
+  try {
     if (options.client) client = options.client;
     else {
       const baseUrl = env.CENTRAL_API_BASE_URL?.trim();
@@ -102,8 +110,9 @@ export async function runPermissionsCli(options: PermissionsCliOptions): Promise
       client = new CentralDataClient({ baseUrl: centralOrigin(baseUrl), token, organizationId: env.CENTRAL_ORGANIZATION_ID });
     }
   } catch (error) {
-    output.error(error instanceof Error ? error.message : String(error));
-    return 1;
+    // --soft is for "predev": a Central that is not set up must not stop a developer from starting the app.
+    output[args.soft ? "warn" : "error"](error instanceof Error ? error.message : String(error));
+    return args.soft ? 0 : 1;
   }
 
   for (let attempt = 0; ; attempt += 1) {
@@ -118,7 +127,8 @@ export async function runPermissionsCli(options: PermissionsCliOptions): Promise
       const [registered, usage] = await Promise.all([client.listRegisteredPermissions(application), client.permissionUsage(application)]);
       const check = comparePermissions(manifest, registered, usage);
       for (const line of describePermissionCheck(check)) output.log(line);
-      return permissionCheckFailed(check, { allowRemovals: args.allowRemovals }) && !args.soft ? 1 : 0;
+      const failed = args.beforeDeploy ? check.unknownToCode.length > 0 : permissionCheckFailed(check, { allowRemovals: args.allowRemovals });
+      return failed && !args.soft ? 1 : 0;
     } catch (error) {
       const refused = error instanceof CentralApiError && error.status > 0 && error.status < 500;
       if (!refused && attempt < args.retries) {

@@ -1,6 +1,6 @@
 {
   "name": "mws-central-auth",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "description": "Shared building blocks for MWS apps that integrate with the central identity system: reusable status/error UI (mws-central-auth), Hub SSO relay-token verification (mws-central-auth/server), a client for Central's internal student/employee data API (mws-central-auth/data-client), and test helpers that check an app against the MWS Access Standard (mws-central-auth/conformance). The access kit (mws-central-auth/access, access/cli and the mws-access command) is the one shared implementation of permissions, permissions:sync and entitlement handling.",
   "type": "module",
   "main": "dist/index.cjs",

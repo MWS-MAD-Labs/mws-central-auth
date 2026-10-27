@@ -63,6 +63,17 @@ describe("mws-access doctor", () => {
     expect(findings.Environment).toMatchObject({ status: "fail", detail: "Missing: APP_BASE_URL." });
   });
 
+  it("asks for the web address under the name the app gives it", async () => {
+    const { cwd, config } = await project();
+    const { APP_BASE_URL: _removed, ...rest } = env;
+    const named = { ...config, doctor: { appUrlEnv: "FRONTEND_URL" } };
+    const findings = byName(await runDoctorChecks({ cwd, config: named, env: rest, fetchImpl: world() }));
+    expect(findings.Environment).toMatchObject({ status: "fail", detail: "Missing: FRONTEND_URL." });
+    expect(findings.Environment!.fix).toContain("FRONTEND_URL");
+    const ok = byName(await runDoctorChecks({ cwd, config: named, env: { ...rest, FRONTEND_URL: "https://app.example.org" }, fetchImpl: world() }));
+    expect(ok.Environment!.status).toBe("ok");
+  });
+
   it("says the client belongs to another profile, in Central's words", async () => {
     const { cwd, config } = await project();
     const message = 'This API client belongs to the profile "hub". Only a client under a profile with the code "inv" may use the permissions of inv.';

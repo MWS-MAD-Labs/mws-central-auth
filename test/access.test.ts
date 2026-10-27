@@ -198,6 +198,18 @@ describe("the permissions command", () => {
     const missing = quiet();
     expect(await runPermissionsCli({ application: "inv", manifest, command: "sync", argv: [], output: missing.output, env: {} })).toBe(1);
     expect(missing.lines.join("\n")).toContain("CENTRAL_API_BASE_URL and CENTRAL_API_TOKEN are required");
+    // For "predev": with nothing set up, --soft warns and lets the app start.
+    const soft = quiet();
+    expect(await runPermissionsCli({ application: "inv", manifest, command: "sync", argv: ["--soft"], output: soft.output, env: {} })).toBe(0);
+    expect(soft.lines.join("\n")).toContain("CENTRAL_API_BASE_URL and CENTRAL_API_TOKEN are required");
+  });
+
+  it("checks before a deploy: only roles using a permission the code lost fail it", async () => {
+    const ahead = client({ listRegisteredPermissions: async () => [{ key: "inv.use", description: null, requires: ["other"], source: "MANIFEST" as const, deprecated: false }, { key: "old.gone", description: null, requires: [], source: "MANIFEST" as const, deprecated: false }] });
+    expect(await runPermissionsCli({ application: "inv", manifest, command: "check", argv: [], client: ahead, output: quiet().output, env: {} })).toBe(1);
+    expect(await runPermissionsCli({ application: "inv", manifest, command: "check", argv: ["--before-deploy"], client: ahead, output: quiet().output, env: {} })).toBe(0);
+    const lost = client({ permissionUsage: async () => ["mystery.key"] });
+    expect(await runPermissionsCli({ application: "inv", manifest, command: "check", argv: ["--before-deploy"], client: lost, output: quiet().output, env: {} })).toBe(1);
   });
 
   it("tries again when Central is down, but not when it refuses", async () => {
