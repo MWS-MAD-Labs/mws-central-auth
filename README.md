@@ -287,6 +287,14 @@ The resolver keeps an answer for at most 60 seconds and "no access" for 30, asks
 
 Run it in CI: `node --import tsx node_modules/mws-central-auth/dist/access/bin.js check` (a `.ts` manifest or probe needs tsx or bun; plain JSON and JS do not). The probe module exports `createProbe()`, which starts the app and returns `{ routes, call(route), close() }`; each route is sent as a signed-in person with no permissions and must answer 401 or 403.
 
+`mws-access doctor` answers "why does nobody get in?" the same way in every app, with the same `access.config.json`:
+
+```bash
+node --import tsx node_modules/mws-central-auth/dist/access/bin.js doctor --url http://localhost:3011
+```
+
+It reads the app's `.env` (or `--env-file`) and the environment, then checks: the lines Central hands out plus `APP_BASE_URL` are set and are addresses, the Hub publishes its keys, the Central token is accepted and belongs to the profile with the application's code (Central's own words are printed when it does not), Central has every permission of the code, somebody has access, and, with `--url`, that the running app turns away a visitor with no cookie (`--me-path` changes the path, default `/api/v1/me`). A running app that answers 200 is not in the Hub sign-in mode, or was not restarted after the `.env` changed. Every failed check prints a `Fix:` line; no secret is printed. Exit code 1 when something fails.
+
 ## Usage: conformance checks for the Access Standard (`mws-central-auth/conformance`)
 
 Test helpers that check an app against the MWS Access Standard (`mws-data-center/docs/access-standard.md`). They return findings with the rule number (`AS-3`, `AS-6`, ...) instead of throwing, so one run lists everything. `assertConformance` throws when there is a problem; warnings never fail it. Put them in the app's normal test run (AS-15).
