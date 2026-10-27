@@ -33,7 +33,7 @@ function world(overrides: Partial<Record<"jwks" | "permissions" | "entitlements"
   const answers = {
     jwks: () => json(200, { keys: [{ kid: "k1" }] }),
     permissions: () => json(200, { success: true, data: [{ key: "inv.use", deprecated: false }, { key: "inv.read", deprecated: false }] }),
-    entitlements: () => json(200, { success: true, data: [{ person_id: "p1" }], paging: { current_page: 1, total_page: 1, total_item: 1, size: 200 } }),
+    entitlements: () => json(200, { success: true, data: [{ person_id: "p1", organization_id: "org_x" }], paging: { current_page: 1, total_page: 1, total_item: 1, size: 200 } }),
     me: () => json(401, {}),
     ...overrides,
   };
@@ -53,7 +53,7 @@ describe("mws-access doctor", () => {
   it("passes when the Hub, Central, the code and the app agree", async () => {
     const { cwd, config } = await project();
     const findings = await runDoctorChecks({ cwd, config, env, url: "http://localhost:3011", fetchImpl: world() });
-    expect(findings.map((finding) => finding.status)).toEqual(["ok", "ok", "ok", "ok", "ok", "ok"]);
+    expect(findings.map((finding) => finding.status)).toEqual(["ok", "ok", "ok", "ok", "ok", "ok", "ok"]);
   });
 
   it("lists the lines that are missing", async () => {
@@ -108,6 +108,16 @@ describe("mws-access doctor", () => {
     const findings = byName(await runDoctorChecks({ cwd, config, env, url: "http://localhost:3011/", fetchImpl: world({ me: () => json(200, { data: { email: "dev@example.org" } }) }) }));
     expect(findings["Running app"]).toMatchObject({ status: "fail", detail: "It answers as a signed-in person without any cookie." });
     expect(findings["Running app"]!.fix).toContain("restarted");
+  });
+
+  it("says the Organization ID in the .env is not the one Central uses, and what likely happened", async () => {
+    const { cwd, config } = await project();
+    const findings = byName(await runDoctorChecks({ cwd, config, env: { ...env, CENTRAL_ORGANIZATION_ID: "org_old" }, fetchImpl: world() }));
+    expect(findings["Organization ID"]).toMatchObject({ status: "fail" });
+    expect(findings["Organization ID"]!.detail).toContain("org_old");
+    expect(findings["Organization ID"]!.detail).toContain("org_x");
+    expect(findings["Organization ID"]!.fix).toContain("removed and added again");
+    expect(formatDoctor(Object.values(findings))).not.toContain("secret-value");
   });
 
   it("reports an unreachable Hub", async () => {

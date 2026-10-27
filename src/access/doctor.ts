@@ -134,6 +134,22 @@ export async function runDoctorChecks(options: DoctorOptions): Promise<DoctorFin
           ? { name: "Access", status: "ok", detail: `${entitlements.length} people can use ${application}.` }
           : { name: "Access", status: "fail", detail: `Nobody has access to ${application} yet.`, fix: "In Central, give a role to a person or an access group, and make sure the application is Single Sign-On with the Shared Hub Session." },
       );
+      // Every app only compares its CENTRAL_ORGANIZATION_ID with the one on the entitlements, so a mismatch turns everyone
+      // away without a crash. An application removed and added again in Central can get a new one.
+      const configured = env.CENTRAL_ORGANIZATION_ID?.trim();
+      const central = [...new Set(entitlements.map((entitlement) => entitlement.organization_id))];
+      if (configured && central.length > 0) {
+        add(
+          central.includes(configured)
+            ? { name: "Organization ID", status: "ok", detail: "CENTRAL_ORGANIZATION_ID is the one Central uses for this application." }
+            : {
+                name: "Organization ID",
+                status: "fail",
+                detail: `CENTRAL_ORGANIZATION_ID is ${configured}, but Central uses ${central.join(", ")} for ${application}, so every sign-in is turned away.`,
+                fix: "The application was probably removed and added again in Central, which can give it a new Organization ID. Copy the new value (Application Access, or the env block Central shows) into the .env and restart.",
+              },
+        );
+      }
     } catch (error) {
       add({ name: "Access", status: "fail", detail: `The list of people with access could not be read: ${error instanceof Error ? error.message : String(error)}.`, fix: "The API client needs the scope application_entitlements:read." });
     }
