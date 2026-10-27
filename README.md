@@ -223,6 +223,41 @@ The exact `ApplicationEntitlement` contract is:
 }
 ```
 
+## Usage: conformance checks for the Access Standard (`mws-central-auth/conformance`)
+
+Test helpers that check an app against the MWS Access Standard (`mws-data-center/docs/access-standard.md`). They return findings with the rule number (`AS-3`, `AS-6`, ...) instead of throwing, so one run lists everything. `assertConformance` throws when there is a problem; warnings never fail it. Put them in the app's normal test run (AS-15).
+
+```ts
+import { assertConformance, checkManifest, checkNoRoleNames, checkPermissionUsage, checkPresets, mergeResults, probeRoutes, trackFastifyRoutes } from "mws-central-auth/conformance";
+
+// 1. Fastify: install the tracker before any route or plugin is registered.
+const app = Fastify();
+const tracker = trackFastifyRoutes(app);
+await registerRoutes(app);
+await app.ready();
+
+assertConformance(mergeResults(
+  // AS-3, AS-4: key format, `<app>.use`, requires, manage needs read
+  checkManifest(MANIFEST, { application: "inventory" }),
+  // AS-13, AS-5: starting roles only use manifest keys, carry what is needed, no two alike
+  checkPresets(rolePresets, MANIFEST),
+  // AS-6: every route not on the open list turns away a signed-in person with no permissions
+  await probeRoutes({
+    routes: tracker.routes(),
+    open: ["GET /health/*", "GET /api/v1/me", "POST /api/v1/auth/logout"],
+    call: async ({ method, url }) => (await app.inject({ method, url, headers: asPersonWithNoPermissions })).statusCode,
+  }),
+  // AS-6, AS-7: a key in the code that is not in the manifest is a typo; a manifest key nobody asks for is dead
+  await checkPermissionUsage({ roots: ["src"], manifest: MANIFEST, manifestFiles: ["src/permissions.ts"] }),
+  // AS-2: no role name in the logic
+  await checkNoRoleNames({ roots: ["src"], roleNames: ["ADMIN", "MANAGER"], allow: [{ file: "src/labels.ts", reason: "display label" }] }),
+));
+```
+
+- `probeRoutes` works with any framework: give it the routes and a `call` that sends the request as a signed-in person with no permissions. 401 or 403 passes. Any other answer means the gate let it through (a 400/413/415/422 can come from validation before the gate, so it only warns).
+- `trackFastifyRoutes` is for Fastify. For other frameworks pass `routes` yourself.
+- A key you registered before the standard format can be listed in `legacyKeys` of `checkManifest` so it only warns while you rename it.
+
 ## Usage: status/error pages (`mws-central-auth`)
 
 ```tsx
