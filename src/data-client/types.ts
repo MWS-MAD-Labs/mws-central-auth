@@ -231,6 +231,8 @@ export interface PermissionSyncResult {
   deprecated: string[];
   // Active roles that still carry a permission this list dropped.
   affected_roles: { role: string; permissions: string[] }[];
+  // Keys Central accepted in an old shape; they keep working until renamed (Access Standard AS-14). Absent on an older Central.
+  legacy_keys?: string[];
 }
 
 export interface RegisteredPermission {

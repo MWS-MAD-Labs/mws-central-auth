@@ -223,6 +223,70 @@ The exact `ApplicationEntitlement` contract is:
 }
 ```
 
+## Usage: the access kit (`mws-central-auth/access`, `access/cli`, `mws-access`)
+
+One implementation of what every app does with permissions (Access Standard, `mws-data-center/docs/access-standard.md`), so apps do not copy it. Use these instead of writing your own:
+
+```ts
+// src/permissions.ts: the one list of the app's permissions. It checks itself when it is loaded (AS-3, AS-4).
+import { definePermissions } from "mws-central-auth/access";
+
+export const permissions = definePermissions({
+  application: "inventory",
+  permissions: [
+    { key: "inventory.use", description: "Sign in" },
+    { key: "inventory.read", description: "See items", requires: ["inventory.use"] },
+    { key: "inventory.manage", description: "Add, change and delete items", requires: ["inventory.read"] },
+  ],
+});
+```
+
+```ts
+// scripts/permissions.ts: permissions:sync and permissions:check, the same in every app (AS-4). Three lines.
+import { runPermissionsCli } from "mws-central-auth/access/cli";
+import { permissions } from "../src/permissions";
+
+process.exit(await runPermissionsCli({ application: permissions.application, manifest: permissions.manifest }));
+// npm run permissions:sync -- [--confirm-removals] [--retries 5 --wait 20]   |   npm run permissions:check -- [--soft]
+// Reads CENTRAL_API_BASE_URL and CENTRAL_API_TOKEN (and CENTRAL_ORGANIZATION_ID when set).
+```
+
+```ts
+// Where the app turns a person into permissions (AS-10, AS-11).
+import { can, createAccessResolver } from "mws-central-auth/access";
+import { CentralDataClient } from "mws-central-auth/data-client";
+
+const central = new CentralDataClient({ baseUrl, token, organizationId });
+const access = createAccessResolver({
+  application: permissions.application,
+  permissions: permissions.keys,
+  organizationId, // refuses an entitlement of another organization
+  lookup: (personId) => central.lookupApplicationEntitlement({ person_id: personId, application_id: permissions.application }),
+});
+
+const result = await access.resolve(claims.sub);
+if (result.status === "denied") /* turn the person away; result.reason says why */;
+if (result.status === "unavailable") /* Central cannot be asked: show your own message, nothing is granted */;
+if (result.status === "allowed" && can(result.permissions, "inventory.manage")) { /* ... */ }
+```
+
+The resolver keeps an answer for at most 60 seconds and "no access" for 30, asks Central once for simultaneous requests, never grants a permission the manifest does not list (it comes back in `ignored`), and needs `<application>.use`. Call `access.invalidate(personId)` to forget someone at once.
+
+`mws-access check` runs the conformance checks below the same way in every app, from an `access.config.json` at the root of the app:
+
+```json
+{
+  "application": "inventory",
+  "manifest": "src/permissions.ts",
+  "presets": "role-presets.json",
+  "source": { "roots": ["src"], "manifestFiles": ["src/permissions.ts"] },
+  "roleNames": ["ADMIN", "CLERK"],
+  "probe": { "module": "scripts/access-probe.ts", "open": ["GET /health/*", "GET /me"] }
+}
+```
+
+Run it in CI: `node --import tsx node_modules/mws-central-auth/dist/access/bin.js check` (a `.ts` manifest or probe needs tsx or bun; plain JSON and JS do not). The probe module exports `createProbe()`, which starts the app and returns `{ routes, call(route), close() }`; each route is sent as a signed-in person with no permissions and must answer 401 or 403.
+
 ## Usage: conformance checks for the Access Standard (`mws-central-auth/conformance`)
 
 Test helpers that check an app against the MWS Access Standard (`mws-data-center/docs/access-standard.md`). They return findings with the rule number (`AS-3`, `AS-6`, ...) instead of throwing, so one run lists everything. `assertConformance` throws when there is a problem; warnings never fail it. Put them in the app's normal test run (AS-15).
