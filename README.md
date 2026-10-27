@@ -157,7 +157,7 @@ An app's logout address is saved once in Central (`.../auth/logout`). The Hub de
 
 ## Usage: shared session for apps on the Hub's parent domain (`createHubSession`, `keepFresh`)
 
-When the Hub and the app are on the same parent domain (for example `hub.mws.web.id` and `exima.mws.web.id`), the app needs no sign-in flow, no session of its own and no sign-out. The Hub keeps two cookies (see the Hub README): a short access token on the parent domain that every app can read, and a refresh token only the Hub can use. Signing out of the Hub signs the person out of every app.
+When the Hub and the app are on the same parent domain (for example `hub.example.org` and `exima.example.org`), the app needs no sign-in flow, no session of its own and no sign-out. The Hub keeps two cookies (see the Hub README): a short access token on the parent domain that every app can read, and a refresh token only the Hub can use. Signing out of the Hub signs the person out of every app.
 
 ```ts
 import { createHubSession } from "mws-central-auth/server";
